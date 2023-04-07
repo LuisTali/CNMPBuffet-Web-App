@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<body>
+    {{> nav-bar}}
+    {{#if foodDay}}
+        <div class="foodSearched">
+                <h2>Plato Buscado</h2>
+                <div class="card" style="background-color: black;">
+                    <div class="texto">
+                        <h4>{{foodDay.nombre}}</h4>
+                        <p>{{foodDay.descripcion}}</p>
+                    </div>
+                </div>
+        </div>    
+    {{/if}}
+
+    {{> footer}}
+</body>
+</html>

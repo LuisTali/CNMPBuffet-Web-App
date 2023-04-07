@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<body>
+    {{> nav-bar}}
+    <div class="opciones">
+        <ul class="categorias">
+            <li><a href="#">Entradas</a> </li>
+            <li><a href="#sandwich">Sandwich</a> </li>
+            <li><a href="#pescados y mariscos">Pescados y Mariscos</a> </li>
+            <li><a href="#">Pastas</a> </li>
+            <li><a href="#">Carnes Rojas</a> </li>
+            <li><a href="#carnes blancas">Carnes Blancas</a> </li>
+            <li><a href="#">Guarnicion</a> </li>
+            <li><a href="#">Ensaladas</a> </li>
+            <li><a href="#">Arroces</a> </li>
+            <li><a href="#postres">Postres</a> </li>
+            <li><a href="#">Cafeteria</a></li>
+            <li><a href="#">Bebidas</a></li>
+            <li><a href="#">Cervezas</a></li>
+            <li><a href="#">Menu Infantil</a></li>
+        </ul>
+    </div>
+    <div class="container" id="infoDiv">
+
+        <div class="container-main">
+            <h2>Nuestros platos Referentes</h2>
+            <div class="card card1" style="background-image: url(/images/mondongo-a-la-espanola.jpeg);">
+                <div class="texto">
+                    <h4>Mondongo a la Espanola</h4>
+                    <p>Mondongo con morron, cebolla, chorizo y pimienta.</p>
+                </div>
+            </div>
+            <div class="card card2" style="background-image: url(/images/locro.jpeg); ">
+                <div class="texto">
+                    <h4>Locro </h4>
+                    <p>Locro argentino, 25 de mayo, imbatible</p>
+                </div>
+            </div>
+            <div class="card card3" style="background-image: url(/images/picada.jpeg); ">
+                <div class="texto">
+                    <h4>Picada</h4>
+                    <p>Jamon crudo y cocido, salame, matambre, queso y aceitunas</p>
+                </div>
+            </div>
+            <div class="card card4" style="background-image: url(/images/merluza-al-roquefort.jpeg);">
+                <div class="texto">
+                    <h4>Merluza al Roquefort</h4>
+                    <p>Merluza al roquefort con queso gratinado, acompanado de pure </p>
+                </div>
+            </div>
+            <div class="card card5" style="background-image: url(/images/suprema-fiorentina.jpeg);">
+                <div class="texto">
+                    <h4>Suprema a la fiorentina</h4>
+                    <p>Suprema a la fiorentina, con morron, acelga salteada  y arroz</p>
+                </div>
+            </div>
+            <div class="card card6" style="background-image: url(/images/rabas.jpg);">
+                <div class="texto">
+                    <h4>Rabas</h4>
+                    <p>Aros de calamar fritos, porcion para 2, un manjar</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-aside">
+                <h2>Menu del Dia</h2>
+                <p id="nombrePDia">Nombre plato del dia</p>
+                <p id="descripcionPDia">Descripcion</p>
+        </div>
+
+        <hr id="lineaMoviles">
+    </div>
+    
+    <hr id="lineaMenuTextual">
+
+    <div class="menu">
+        
+        <div class="categoria">
+            <h3>Entradas</h3>
+        </div>
+        
+        <div class="categoria" id="sandwich">
+            <h3>Sandwich</h3>
+            {{#each platos}}
+                <h4>{{this.id}}</h4>
+                <h5>{{this.nombre}}</h5>
+            {{/each}}
+        </div>
+        
+        <div class="categoria" id="pescados y mariscos">
+            <h3>Pescados y Mariscos</h3>
+            
+        </div>
+        
+        <div class="categoria">
+            <h3>Pastas</h3>
+        </div>
+        
+        <div class="categoria" id="carnes rojas">
+            <h3>Carnes Rojas</h3>
+        </div>
+        
+        <div class="categoria" id="carnes blancas">
+            <h3>Carnes Blancas</h3>
+        </div>
+        
+        <div class="categoria" id="guarniciones">
+            <h3>Guarnicion</h3>
+        </div>
+        
+        <div class="categoria">
+            <h3>Ensaladas</h3>
+        </div>
+        
+        <div class="categoria">
+            <h3>Arroces</h3>
+        </div>
+        
+        <div class="categoria" id="postres">
+            <h3>Postres</h3>
+        </div>
+        
+        <div class="categoria">
+            <h3>Cafeteria</h3>
+        </div>
+        
+        <div class="categoria">
+            <h3>Bebidas</h3>
+        </div>
+        
+        <div class="categoria">
+            <h3>Cervezas</h3>
+        </div>
+        
+        <div class="categoria">
+            <h3>Menu Infantil</h3>
+        </div>
+    </div>
+
+    <div id="details">
+        <button class="" id="order">
+            <span>ORDER</span>
+        </button>
+        <input type="text" disabled="true" id="subtotal">
+    </div>
+    
+
+    <!--Seccion para editar el plato del dia-->
+    <div class="editInfo isInactive" id="editInfoDiv">
+        <h3>Editar Plato del Dia</h3>
+            <div class="inputDiv">
+                <label for="">Plato del dia</label>
+                <input id="inputPlatoDia"type="text" placeholder="nombre del plato del dia" onkeyup="myFunctionName()">
+            </div>
+            <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato" onkeyup=""></textarea>
+
+            <!--No se que tan mal esta colocar esto dentro de un form el cual no tiene mas utilidad que indicar que aqui se presenta un formulario, quizas al usar Node y actualizar el plato del dia eligiendolo desde un menu desplegable si necesite usar un Method en el form pero por ahora no-->
+            <div class="presentacionPrevia">
+                <h3>Presentacion previa</h3>
+                <h4 id="presentacionNombre">Nombre plato dia</h4>
+                <p id="presentacionDesc">Descripcion plato dia</p>
+            </div>
+            
+            <button id="edit">EDIT</button> 
+    </div>
+
+    {{> footer}}
+
+    <script  type='module' src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: -apple-system,system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+body{
+    overflow-y: scroll;
+}
+/*Permite el scroll en el eje Y y quito la barra de scroll de la vista.*/
+::-webkit-scrollbar{
+    display: none;
+}
+
+.isInactive{
+    /*Si seteo opacity a 0 desaparezco la vista y con pointer-events en none deshabilito todos los items clickeables como inputs botones y demas */
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+nav{    
+    display: flex;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+}
+
+nav img{
+    height: 80px;
+}
+
+nav ul{margin-right: 10px;}
+
+nav li{
+    float: left;
+}
+
+nav li a{
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    height: 60px;
+    /*padding: top left bottom right*/
+    padding: 0px 15px 0px 15px; 
+    font-weight: 500;
+}
+
+nav li a:hover{
+    background-color: rgb(44, 44, 44);
+    border: 3px solid whitesmoke;
+    border-radius: 15px;
+}
+
+.categorias{
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 100px;
+    z-index: -999;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.categorias li{
+    height: auto;
+    width: auto;
+}
+
+.categorias li a{
+    display: flex;
+    height: 50px;
+    padding: 0px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
+    align-items: center; /*Al tener display flex, alinea el texto dentro de cada Li de la lista*/
+    white-space: nowrap; /*No corta el texto, haciendo que la categoria entre en linea recta*/
+    color: black;
+    font-weight: 500; /*Le doy mas peso a la letra, haciendola mas gruesa*/
+    border: 3px solid whitesmoke;
+    border-radius: 10px;
+}
+
+.categorias li a:hover{
+    color: whitesmoke;
+    background-color: rgb(3, 3, 126);
+    border-color: red;
+}
+
+.categorias li a:active{color: whitesmoke;background-color: rgb(3, 3, 126);border-color: red;}
+
+.categorias li a:active{
+    transition: all 0.5s;
+}
+
+.container{
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,1fr);
+    gap: 20px; /*Distancia entre cada filas y columnas*/
+    height: 100vh;
+}
+
+.container .container-main{
+    display: grid;
+    grid-column: 1/3;
+    margin: 10px 0px 0px 1rem;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 80px repeat(3,1fr);
+    gap: 20px;
+    /*Fijarme como hacer linea del borde mas cortita*/
+    border-right: 1px solid black;
+}
+
+.container .container-main h2{
+    text-align: center;
+    grid-column: 1/3;
+}
+
+.container .container-main .card .texto{
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 8px 0px 0px 16px;
+    font-weight: 500;
+}
+
+.container .container-main .card{
+    /*Asi puedo ajustar la imagen de fondo al tamano del div.
+    Podria usar background-position: center; para centrar la imagen pero la foto del mondongo a la espanola no queda bien centrada.*/
+    background-size: cover;
+    border-radius: 20px;
+    /*El primero es para la sombra del bottom y el otro para el efecto blur*/
+    box-shadow: 0px 3px 3px  black;
+    margin-right: 16px;
+}
+
+.card1{background-position: 0px -50px;}
+.card2{background-position: 0px -200px;}
+.card3{background-position: 0px -190px;}
+.card5{background-position: 0px -100px;}
+
+.container .container-main .card h4{
+    background-color: beige;
+    width: fit-content;
+    padding: 0px 6px 0px 6px;
+    border-radius: 5px;
+}
+
+.container .container-main .card p{
+    /*El ultimo valor es alpha y especifica la opacidad del color de fondo*/
+    background-color: rgb(245, 245, 220, 0.5);
+    width: fit-content;
+    padding: 0px 6px 0px 6px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.container .container-aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    /*justify-content: center; Si elimino el comentario se posiciona justo en el medio del div*/
+}
+
+.container .container-aside #nombrePDia{
+    font-family: 'Dancing Script',cursive; /*Fuente para usar la integrada elegida en la pagina google fonts*/
+    font-size: 75px;
+    text-align: center;
+}
+
+.container .container-aside #descripcionPDia{
+    font-size: 36px;
+    text-align: center;
+    margin: 0px 20px 0px 20px;
+}
+
+button{
+    margin: 10px 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.editInfo{
+    position: fixed;
+    top: 0;
+    margin-top: 100px;
+    height: 100vh;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+.editInfo .inputDiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+.editInfo h4{
+    font-family: 'Dancing Script',cursive;
+    font-size: 40px;
+}
+
+.editInfo #descripcionPlatoDia{
+    width: 90%;   
+}
+
+.presentacionPrevia{
+    width: 100%;
+    text-align: center;
+}
+
+/*Al ser la linea que separa el plato del dia de las categorias en la version para moviles, en la version para pc no quiero que se visualice.*/
+#lineaMoviles{
+    display: none;
+}
+
+#lineaMenuTextual{
+    height: 3px;
+    margin-top: 24px;
+    background-color: black;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.menu .categoria{
+    margin: 16px;
+}
+
+.menu .categoria ul li{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 16px 6px 16px;
+    align-items: center;
+}
+
+.menu .categoria ul li button{
+    display: flex;
+    font-size: 16px;
+    width: auto;
+    height: 30px;
+    padding: 0px 6px 0px 6px;
+    align-items: center;
+}
+
+.menu .categoria ul li button img{
+    width: 24px; height: 24px;
+}
+
+.categoria h3{
+    text-decoration:underline;
+    text-decoration-color: red;
+    color: rgb(0, 0, 113);
+    
+}
+
+#details{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#order{
+    height: 30px;
+}
+
+#subtotal{
+    margin: 10px 30px;
+    width: 100px;
+    border-radius: 5px;
+    height: 30px;
+    text-align: center;
+    background: none;
+}
+
+#subtotal::placeholder{
+    color: black;
+    font-weight: 600;
+}
+
+/*Agregado estilos al footer*/
+footer{
+    text-align: center;
+    margin-top: 64px;
+    padding-bottom: 24px;
+}
+footer h2 a{color: rgb(0, 42, 158);}
+footer h2 a:hover{color: black;text-decoration: underline;}
+footer h2 a:active{color: red;text-decoration: none;}
+/*Fin estilos Footer.handlebars*/
+
+/*Estilos para la carta cuando busco un plato por Id*/
+.foodSearched{
+    margin-top: 100px;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.foodSearched .card{
+    display: flex;
+    width: 70%;
+    height: 60vh;
+    background-size: cover;
+    box-shadow: 1;
+    box-shadow: 0px 3px 3px  black;
+    margin-right: 16px;
+    border-radius: 20px;
+}
+.foodSearched .card .texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    margin: 8px 0px 0px 16px;
+    font-weight: 500;
+}
+.foodSearched .card .texto h4{background-color: bisque;} .foodSearched .card .texto p{background-color: bisque;}
+/*Fin de la seccion searchFoodById*/
+
+@media screen and (max-width:829px){
+    body{
+        overflow-y: scroll;
+    }
+    /*Permite el scroll en el eje Y y quito la barra de scroll de la vista.*/
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    
+    nav ul{
+        font-size: 0.8em;
+    }
+
+    .categorias{
+        overflow-x: scroll;
+        margin-top: 100px;
+        z-index: -999;
+    }
+
+    .categorias li{
+        height: auto;
+        width: auto;
+    }
+
+    .categorias li a{
+        display: flex;
+        height: 50px;
+        padding: 0px 10px 0px 10px;
+        margin: 0px 10px 0px 10px;
+        align-items: center; /*Al tener display flex, alinea el texto dentro de cada Li de la lista*/
+        white-space: nowrap; /*No corta el texto, haciendo que la categoria entre en linea recta*/
+        color: black;
+        font-weight: 500; /*Le doy mas peso a la letra, haciendola mas gruesa*/
+        border: 3px solid whitesmoke;
+        border-radius: 10px;
+    }
+
+    .categorias li a:hover{
+        color: whitesmoke;
+        background-color: rgb(3, 3, 126);
+        border-color: red;
+    }
+
+    .container{
+        display: flex;
+        height: 100%;
+        flex-direction: column-reverse;
+        width: 100%;
+        z-index: -999;
+        margin-top: 16px;
+        /*border-top: 3px solid black;*/
+        /*z-index para que no superponga la navbar, position relative para */
+    }
+
+    .container .container-main{
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        align-items: center;
+    }
+
+    .container .container-main .card{
+        height: 250px;
+        display: flex;
+        text-align: center ;
+        align-items: center;
+        width: 80%;
+        /*background-position: center center; si descomento esta linea queda un diseño mas responsive, la comento ya que son platos preferentes los cuales dudo que se actualicen seguido, optando asi por posicionarlos manualmente*/
+        /*background-attachment: fixed; si descomento esta linea, las imagenes quedan fijas y al scrollear se mueven las tarjetas a medida que van recorriendo las imagenes, un efecto muy bueno a tener en cuenta pero debo achicar las imagenes un poco para no perder*/
+    }
+
+    .card1{background-position: 0px -30px;}
+    .card2{background-position: 0px -100px;}
+    .card3{background-position: 0px -70px;}
+    .card5{background-position: 0px -30px;}
+
+    .container .container-aside{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+        /*Por probar los bordes de cada esquina redondeados
+        background-color: rgb(184, 184, 184);
+        border-bottom-left-radius: 200px;
+        border-bottom-right-radius: 200px;*/
+    }
+
+    #lineaMoviles{
+        display: inline;
+        height: 2px;
+        width: 80%;
+        margin-left: 10%;
+        /*width al 80% y margin left a la mitad del espacio restante en el div para que quede centrado*/
+        background-color: black;
+    }
+    
+    /*Lo dejo porque me parece interesante como lo resolvi, luego lo borrare.
+
+    .container{
+        /*Creo dos filas en la grilla para poder posicionar el plato del dia(container-aside) por encima de los platos referentes (container-main).
+        Si quisiera hacer el div del plato del dia mas chico lo establezcon px y luego el otro con fr.
+        grid-template-rows: repeat(2,1fr);
+        overflow-y: none;
+    }
+
+
+    .container .container-aside{
+        display: flex;
+        justify-content: center;
+        grid-column:1/4;
+        grid-row: 1/2;
+        text-align: center;
+    }
+
+    .container .container-main{
+        Primer fila de 40px para el titulo 'Nuestros platos referentes' y 6 filas que ocupen una fraccion del espacio restante para cada una de las seis cartas.
+        grid-template-rows: 40px repeat(6,1fr);
+        grid-template-columns: repeat(1,1fr);
+        grid-column: 1/4;
+        gap: 20px;
+        border: 0px;
+        /*Redundante ya que container aside se especifica de fila 1 a 2
+        sobreentendiendo que esta se posicionara debajo en la segunda fila de 2 a 3.
+        grid-row: 2/3;
+    }*/
+
+    
+}
