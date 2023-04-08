@@ -6,7 +6,7 @@ export const getAllFoods = async(req,res)=>{
         let result = await pool.request().query(querys.getAllFoods);
         console.log(result.recordset);
         //return res.status(200).json({success:true,foods:result.recordset})
-        res.render('home.handlebars',{admin:true,foods:result.recordset});
+        res.render('home.handlebars',{admin:false,foods:result.recordset});
     } catch (error) {
         return res.status(400).json({success:false,msg:error.message});
     }
