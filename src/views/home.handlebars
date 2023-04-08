@@ -3,6 +3,9 @@
     
 <body>
     {{> nav-bar}}
+    {{#if success}}
+        <script>alert('{{msg}}')</script>
+    {{/if}}
     <div class="opciones">
         <ul class="categorias">
             <li><a href="#">Entradas</a> </li>
@@ -82,9 +85,8 @@
         
         <div class="categoria" id="sandwich">
             <h3>Sandwich</h3>
-            {{#each platos}}
-                <h4>{{this.id}}</h4>
-                <h5>{{this.nombre}}</h5>
+            {{#each sandwichs}}
+               <li><h4>{{nombre}}</h4><button>{{precio}}</button></li>
             {{/each}}
         </div>
         
@@ -103,14 +105,29 @@
         
         <div class="categoria" id="carnes blancas">
             <h3>Carnes Blancas</h3>
+            <ul>
+            {{#each carnesBlancas}}
+                <li><h4>{{nombre}}</h4><button>${{precio}}<img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
         <div class="categoria" id="guarniciones">
             <h3>Guarnicion</h3>
+            <ul>
+            {{#each guarniciones}}
+                <li><h4>{{nombre}}</h4><button>${{precio}}<img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
         <div class="categoria">
             <h3>Ensaladas</h3>
+            <ul>
+            {{#each ensaladas}}
+                <li><h4>{{nombre}}</h4><button>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
         <div class="categoria">
@@ -136,14 +153,16 @@
         <div class="categoria">
             <h3>Menu Infantil</h3>
         </div>
-    </div>
-
-    <div id="details">
+        
+        <div id="details">
         <button class="" id="order">
             <span>ORDER</span>
         </button>
         <input type="text" disabled="true" id="subtotal">
+        </div>
     </div>
+
+    
     
 
     <!--Seccion para editar el plato del dia-->
@@ -151,7 +170,7 @@
         <h3>Editar Plato del Dia</h3>
             <div class="inputDiv">
                 <label for="">Plato del dia</label>
-                <input id="inputPlatoDia"type="text" placeholder="nombre del plato del dia" onkeyup="myFunctionName()">
+                <input id="inputPlatoDia"type="text" placeholder="nombre del plato del dia" onkeyup="myFunctionName()" value="Plato del dia">
             </div>
             <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato" onkeyup=""></textarea>
 

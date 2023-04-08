@@ -11,7 +11,8 @@ import path from 'path'
 //Es un template engine que puede manipular HTMLcode desde el lado del servidor
 import {engine} from 'express-handlebars';
 
-import foodsRoutes from './router/Food'
+import foodsRoutes from './router/Food';
+import authRoutes from './router/Auth';
 
 //Uso los recursos estaticos
 app.use(express.static(path.join(__dirname,"/public")))
@@ -26,6 +27,7 @@ app.set("views",path.resolve(__dirname + "/views"))
 app.set("port",config.port);
 
 app.use('/foods',foodsRoutes);
+app.use('/auth',authRoutes);
 
 app.listen(app.get('port'),(req,res)=>{
     console.log(`Server is listening on port ${app.get('port')}`);

@@ -1,8 +1,8 @@
-class User{
-    constructor(username,password){
+export class User{
+    constructor(username,password,admin=true){
         this.username = username;
         this.password = password;
-        admin = true;
+        this.admin = admin;
     }
 
     getUsername(){

@@ -23,6 +23,8 @@ body{
     pointer-events: none;
 }
 
+
+/*Seccion Nav-Bar Styles*/
 nav{    
     display: flex;
     height: 80px;
@@ -38,10 +40,19 @@ nav img{
     height: 80px;
 }
 
-nav ul{margin-right: 10px;}
+nav ul{margin-right: 10px; font-size: 1.2em;}
 
 nav li{
     float: left;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0px 3px 0px 3px;
+}
+
+nav li:hover{
+    border-radius: 10px;
+    background-color: rgb(53, 53, 53);
 }
 
 nav li a{
@@ -54,10 +65,26 @@ nav li a{
     font-weight: 500;
 }
 
-nav li a:hover{
-    background-color: rgb(44, 44, 44);
-    border: 3px solid whitesmoke;
-    border-radius: 15px;
+nav li button{ 
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: none;
+    border: none;
+    background: none; 
+    color: whitesmoke; 
+    font-weight: 500;
+    height: 60px;
+    font-size: 1.0em;
+    width: auto;
+    padding: 0px 15px 0px 15px; 
+    /*Margin 0 ya que button viene con margen predefinido*/
+    margin:0px
+}
+/*Fin seccion Nav-Bar Styles*/
+
+
+#alert{
+    margin-top: 100px;
 }
 
 .categorias{
@@ -259,7 +286,7 @@ button{
     text-decoration:underline;
     text-decoration-color: red;
     color: rgb(0, 0, 113);
-    
+    font-weight: 700;
 }
 
 #details{
@@ -337,7 +364,19 @@ footer h2 a:active{color: red;text-decoration: none;}
     }
     
     nav ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         font-size: 0.8em;
+    }
+
+    nav li button{ 
+        box-shadow: none;
+        border: none;
+        background: none; 
+        color: whitesmoke; 
+        font-weight: 500;
+        margin:0px
     }
 
     .categorias{

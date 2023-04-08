@@ -4,6 +4,10 @@
             <li><a href="http://localhost:5000/foods/">HOME</a> </li>
             <li><a href="#">US</a> </li>                
             <li><a href="#">CONTACT</a> </li>
-            {{#if admin}} <li><a href="#" id="editInfo">EDITAR INFO</a> </li> {{/if}}
+            {{#if admin}} 
+                <li><button id="editInfo">EDITAR INFO</button></li> 
+            {{else}}
+                <li><a href="http://localhost:5000/auth/showLogin">LOG IN</a></li>
+            {{/if}}
         </ul>    
     </nav>

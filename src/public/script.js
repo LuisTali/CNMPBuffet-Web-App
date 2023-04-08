@@ -1,12 +1,13 @@
 window.onload = start();
 
 function start(){
-   
+
     //En index page
     const editInfo = document.getElementById("editInfo")
     const mainDiv = document.getElementById("infoDiv")
     const editInfoDiv = document.getElementById("editInfoDiv")
     const categoriesDiv = document.querySelector(".opciones")
+    const menu = document.querySelector(".menu");
     const editBtn = document.getElementById("edit")
     
     //En edit page.
@@ -24,11 +25,13 @@ function start(){
     const orderBtn = document.getElementById('order')
     
     //Al cliquear Edit se muestra la seccion para ingresar la info del plato del dia
-    editInfo.addEventListener('click',() => {
+    editInfo.onclick = (e) =>{
+        console.log('Click');
         mainDiv.classList.add('isInactive');
         categoriesDiv.classList.add('isInactive');
+        menu.classList.add('isInactive');
         editInfoDiv.classList.remove('isInactive');
-    })
+    }
     
     //Al cliquear Edit en la seccion de info del plato del dia se muestra el index con la info actualizada
     editBtn.addEventListener('click',() => {
@@ -37,6 +40,7 @@ function start(){
     
         mainDiv.classList.remove('isInactive');
         categoriesDiv.classList.remove('isInactive');
+        menu.classList.remove('isInactive');
         editInfoDiv.classList.add('isInactive');
         
         console.log(nombrePlatoDia + ', Nombre plato');
@@ -95,8 +99,10 @@ function start(){
         }
     } 
     
-    const agregarCarrito = (plato) =>{
-        carrito.push(plato);
+    const agregarCarrito = (plato,precio) =>{
+        console.log('Click');
+        let comida = {nombre:plato,costo:precio};
+        carrito.push(comida);
         subTotal += plato.precio;
         inputSubT.setAttribute('placeholder',`$${subTotal}`);
     }
