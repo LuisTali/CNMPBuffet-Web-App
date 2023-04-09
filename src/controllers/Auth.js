@@ -1,6 +1,6 @@
 import { getConnection,sql,querys } from "../database";
 import {User} from '../models/User'
-import { getAllFoods,getFoodsValues } from "./Food";
+import { getFoodsValues } from "./Food";
 
 export const showLogin = async(req,res) =>{
     try {
@@ -27,6 +27,8 @@ export const login = async(req,res) => {
             ((user!==undefined) ? console.log(`Usuario creado, Admin: ${user.getAdmin()}`) : console.log('Usuario undefinido'));
             
             let foods = await getFoodsValues();
+
+            //Podria cambiar la query y traer las comidas con el nombre de la categoria escrito y no su id
             let guarniciones = foods.filter((food) => food.idCategoria == 7);
             let carnesBlancas = foods.filter((food) => food.idCategoria == 6);
             let ensaladas = foods.filter((food) => food.idCategoria == 8);
