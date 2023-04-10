@@ -7,13 +7,17 @@
     font-family: -apple-system,system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/*Configuracion para que al usar un href indicando un #id, se saltee la posicion fijada de la navbar*/
+html{
+    scroll-padding-top: 90px;
+ }
 
 body{
     overflow-y: scroll;
 }
 /*Permite el scroll en el eje Y y quito la barra de scroll de la vista.*/
 ::-webkit-scrollbar{
-    display: none;
+    display: normal;
 }
 
 .isInactive{
@@ -127,12 +131,19 @@ nav li button{
 }
 
 .container{
-    display: grid;
+    /*display: grid;
     margin-top: 10px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1,1fr);
     gap: 20px; /*Distancia entre cada filas y columnas*/
-    height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+    grid-template-rows: repeat(1,1fr);
+    gap: 20px; /*Distancia entre cada filas y columnas*/
+    height: 1500px;
+    align-items: center;
+    justify-content: start;
 }
 
 .container .container-main{
@@ -141,14 +152,25 @@ nav li button{
     margin: 10px 0px 0px 1rem;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: 80px repeat(3,1fr);
-    gap: 20px;
-    /*Fijarme como hacer linea del borde mas cortita*/
-    border-right: 1px solid black;
+    gap: 20px 80px;
+    width: 80%;
+    height: 1000px;
 }
 
 .container .container-main h2{
     text-align: center;
     grid-column: 1/3;
+}
+
+.container .container-main .card{
+    /*Asi puedo ajustar la imagen de fondo al tamano del div.
+    Podria usar background-position: center; para centrar la imagen pero la foto del mondongo a la espanola no queda bien centrada.*/
+    background-size: cover;
+    border-radius: 20px;
+    height: 350px;
+    /*El primero es para la sombra del bottom y el otro para el efecto blur*/
+    box-shadow: 0px 3px 3px  black;
+    margin-right: 16px;
 }
 
 .container .container-main .card .texto{
@@ -160,17 +182,7 @@ nav li button{
     font-weight: 500;
 }
 
-.container .container-main .card{
-    /*Asi puedo ajustar la imagen de fondo al tamano del div.
-    Podria usar background-position: center; para centrar la imagen pero la foto del mondongo a la espanola no queda bien centrada.*/
-    background-size: cover;
-    border-radius: 20px;
-    /*El primero es para la sombra del bottom y el otro para el efecto blur*/
-    box-shadow: 0px 3px 3px  black;
-    margin-right: 16px;
-}
-
-.card1{background-position: 0px -50px;}
+.card1{background-position: 0px -150px;}
 .card2{background-position: 0px -200px;}
 .card3{background-position: 0px -190px;}
 .card5{background-position: 0px -100px;}
@@ -195,7 +207,7 @@ nav li button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 30px;
     /*justify-content: center; Si elimino el comentario se posiciona justo en el medio del div*/
 }
 
@@ -265,21 +277,24 @@ button{
 .menu .categoria ul li{
     display: flex;
     justify-content: space-between;
+    height: 40px;
     margin: 0px 16px 6px 16px;
     align-items: center;
 }
-
+.menu .categoria h3{font-size: 1.8em;}
+.menu .categoria ul li h4{font-size: 1.4em;}
 .menu .categoria ul li button{
     display: flex;
-    font-size: 16px;
+    font-size: 1.5em;
     width: auto;
-    height: 30px;
+    height: 40px;
     padding: 0px 6px 0px 6px;
     align-items: center;
+    font-weight: 600;
 }
 
 .menu .categoria ul li button img{
-    width: 24px; height: 24px;
+    width: 20px; height: 20px;
 }
 
 .categoria h3{
@@ -313,15 +328,32 @@ button{
     font-weight: 600;
 }
 
-/*Agregado estilos al footer*/
+/*Inicio seccion estilos Footer*/
 footer{
     text-align: center;
-    margin-top: 64px;
+    margin-top: 36px;
     padding-bottom: 24px;
 }
-footer h2 a{color: rgb(0, 42, 158);}
-footer h2 a:hover{color: black;text-decoration: underline;}
-footer h2 a:active{color: red;text-decoration: none;}
+footer h2 a{color: black;}
+footer h2 a:hover{color: rgb(0, 42, 158);text-decoration: underline;}
+footer h2 a:active{color: red;text-decoration: underline;}
+footer .info{
+    display: flex; 
+    flex-direction: column;
+    border-top: 1px black solid; 
+    margin-top: 16px; 
+    width: 60%;
+    align-items: center;
+    margin-left: 20%;
+}
+footer .info .dato{display: flex; margin-left: 16px;}
+footer p{
+    margin-left: 8px;
+    font-weight: 500;
+}
+footer label{
+    font-weight: 700;
+}
 /*Fin estilos Footer.handlebars*/
 
 /*Estilos para la carta cuando busco un plato por Id*/
@@ -354,7 +386,7 @@ footer h2 a:active{color: red;text-decoration: none;}
 .foodSearched .card .texto h4{background-color: bisque;} .foodSearched .card .texto p{background-color: bisque;}
 /*Fin de la seccion searchFoodById*/
 
-@media screen and (max-width:829px){
+@media screen and (max-width:414px){
     body{
         overflow-y: scroll;
     }
@@ -383,6 +415,7 @@ footer h2 a:active{color: red;text-decoration: none;}
         overflow-x: scroll;
         margin-top: 100px;
         z-index: -999;
+        justify-content: start;
     }
 
     .categorias li{
@@ -409,6 +442,18 @@ footer h2 a:active{color: red;text-decoration: none;}
         border-color: red;
     }
 
+    .menu .categoria ul li button{
+        display: flex;
+        font-size: 1em;
+        width: auto;
+        height: 30px;
+        padding: 0px 6px 0px 6px;
+        align-items: center;
+        font-weight: 600;
+    }
+
+    .menu .categoria ul li h4{font-size: 1em;}
+
     .container{
         display: flex;
         height: 100%;
@@ -423,8 +468,13 @@ footer h2 a:active{color: red;text-decoration: none;}
     .container .container-main{
         display: flex;
         flex-direction: column;
-        margin-top: 50px;
+        justify-content: center;
+        margin-top: 30px;
+        margin-left: 0px;
         align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 20px;
     }
 
     .container .container-main .card{
@@ -436,7 +486,9 @@ footer h2 a:active{color: red;text-decoration: none;}
         /*background-position: center center; si descomento esta linea queda un diseño mas responsive, la comento ya que son platos preferentes los cuales dudo que se actualicen seguido, optando asi por posicionarlos manualmente*/
         /*background-attachment: fixed; si descomento esta linea, las imagenes quedan fijas y al scrollear se mueven las tarjetas a medida que van recorriendo las imagenes, un efecto muy bueno a tener en cuenta pero debo achicar las imagenes un poco para no perder*/
     }
-
+    .container .container-main .card .texto{
+        margin: 8px 8px 0px 8px;
+    }
     .card1{background-position: 0px -30px;}
     .card2{background-position: 0px -100px;}
     .card3{background-position: 0px -70px;}
@@ -453,44 +505,39 @@ footer h2 a:active{color: red;text-decoration: none;}
         border-bottom-right-radius: 200px;*/
     }
 
+    .menu .categoria ul li{margin:6px 8px 6px 8px}
+    .menu .categoria ul li h4{font-size: 1em;}
     #lineaMoviles{
-        display: inline;
+        display: flex;
+        justify-content: center;
         height: 2px;
-        width: 80%;
-        margin-left: 10%;
+        width: 90%;
         /*width al 80% y margin left a la mitad del espacio restante en el div para que quede centrado*/
         background-color: black;
     }
-    
-    /*Lo dejo porque me parece interesante como lo resolvi, luego lo borrare.
 
-    .container{
-        /*Creo dos filas en la grilla para poder posicionar el plato del dia(container-aside) por encima de los platos referentes (container-main).
-        Si quisiera hacer el div del plato del dia mas chico lo establezcon px y luego el otro con fr.
-        grid-template-rows: repeat(2,1fr);
-        overflow-y: none;
+    footer p{
+           
+        white-space: nowrap;
     }
+}
 
-
-    .container .container-aside{
+@media screen and (max-width:350px){
+    .menu .categoria ul li{
         display: flex;
-        justify-content: center;
-        grid-column:1/4;
-        grid-row: 1/2;
-        text-align: center;
+        justify-content: space-between;
+        height: 40px;
+        padding: 8px 0px 8px 0px;
+        margin: 24px 16px 24px 16px;
+        align-items: center;
     }
 
-    .container .container-main{
-        Primer fila de 40px para el titulo 'Nuestros platos referentes' y 6 filas que ocupen una fraccion del espacio restante para cada una de las seis cartas.
-        grid-template-rows: 40px repeat(6,1fr);
-        grid-template-columns: repeat(1,1fr);
-        grid-column: 1/4;
-        gap: 20px;
-        border: 0px;
-        /*Redundante ya que container aside se especifica de fila 1 a 2
-        sobreentendiendo que esta se posicionara debajo en la segunda fila de 2 a 3.
-        grid-row: 2/3;
-    }*/
-
     
+    footer #datoTelefono{
+        flex-direction: column;
+        margin-bottom: 8px;
+    }
+    footer #datoDireccion{
+        flex-direction: column;
+    }
 }

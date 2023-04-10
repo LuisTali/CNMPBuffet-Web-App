@@ -8,22 +8,53 @@ function start(){
     const editInfoDiv = document.getElementById("editInfoDiv")
     const categoriesDiv = document.querySelector(".opciones")
     const menu = document.querySelector(".menu");
-    const editBtn = document.getElementById("edit")
+    const editBtn = document.getElementById("edit");
+    const footer = document.querySelector('footer');
     
     //En edit page.
     let nombrePlatoDia = document.getElementById('inputPlatoDia');
     let descripcionPDia = document.getElementById('descripcionPlatoDia');
     
-    //Carrito
-    let carrito = [];
-    let subTotal = 0;
-    
     //inputSubtotal mostrar precio
     const inputSubT = document.getElementById('subtotal');
     
     //Boton para ordenar al costado del inputSubTotal
-    const orderBtn = document.getElementById('order')
+    const orderBtn = document.getElementById('order');
     
+    //Para iterar y colocarle un listener a cada uno
+    const buyButtons = document.querySelectorAll(".buyBtn");
+
+    //Carrito
+    let carrito = [];
+    let subTotal = 0;
+
+    //Obtiene el boton, sustrae su valor, JSON parsea ese valor a un objeto Javascript y asi obtengo el id y precio del plato agregado al carrito, se aumenta el subTotal y se va printeando a medida que hay mas productos en el carrito
+    const addShoppingCart = (objbutton) =>{
+        let value = objbutton.value;
+        let objValue = JSON.parse(value);
+        carrito.push(objValue);
+        subTotal += objValue.precio;
+        inputSubT.setAttribute('placeholder',`$${subTotal}`);
+        //console.log(objValue.id, objValue.nombre ,objValue.precio);
+    }
+    
+    //Por cada boton de Compra, le agrego onClick para que al clickearlo, se ejecute la funcion para agregar el plato al carrito de compras
+    buyButtons.forEach((btn)=>{btn.onclick = ()=>{addShoppingCart(btn)} })
+
+    //Al realizar la orden el subtotal vuelve a 0
+    orderBtn.onclick = () =>{
+        alert(`Total de su orden ${subTotal}`);
+        
+        //Imprime carrito por consola
+        console.log(`Carrito \n`);
+        carrito.forEach(plato => console.log(`Nombre: ${plato.nombre}, Precio: ${plato.precio} \n`))
+
+        //Setea el input del subtotal a $0, el subtotal que calcula los precios a 0 y vacia el carrito
+        inputSubT.setAttribute('placeholder','$0');
+        subTotal = 0;
+        carrito = [];
+    }
+
     //Al cliquear Edit se muestra la seccion para ingresar la info del plato del dia
     editInfo.onclick = (e) =>{
         console.log('Click');
@@ -31,8 +62,9 @@ function start(){
         categoriesDiv.classList.add('isInactive');
         menu.classList.add('isInactive');
         editInfoDiv.classList.remove('isInactive');
+        footer.style = "display: none;"
     }
-    
+ 
     //Al cliquear Edit en la seccion de info del plato del dia se muestra el index con la info actualizada
     editBtn.addEventListener('click',() => {
         let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
@@ -48,6 +80,8 @@ function start(){
     
         document.getElementById('nombrePDia').innerHTML=nombrePlatoDia;
         document.getElementById('descripcionPDia').innerHTML = descriptionPlatoDia;
+
+        footer.style = "display: normal;"
         }
     )
     
@@ -97,63 +131,5 @@ function start(){
         } catch (error) {
             console.log(`Error: ${error}`);    
         }
-    } 
-    
-    const agregarCarrito = (plato,precio) =>{
-        console.log('Click');
-        let comida = {nombre:plato,costo:precio};
-        carrito.push(comida);
-        subTotal += plato.precio;
-        inputSubT.setAttribute('placeholder',`$${subTotal}`);
-    }
-    
-    //Al realizar la orden el subtotal vuelve a 0
-    orderBtn.addEventListener('click',(event)=>{
-        inputSubT.setAttribute('placeholder',``);
-    })
-    
-    /*const cargarPlatosCreate = async() => {
-        let respuesta = await fetch('./Data/Platos.json');
-        let platos = await respuesta.json();
-        
-        //Mapeo los platos y obtengo solamente las categorias de cada uno para su posterior filtrado
-        let categorias = platos.map((plato) => plato.cat)
-    
-        //Retorna las categorias donde su primer indice concuerda con el del elemento actual, evitando asi elementos repetidos
-        categorias = categorias.filter((valor,indice) => {
-            return categorias.indexOf(valor) === indice
-        })
-    
-        //Por cada categoria listada obtengo su div en el html y creo una lista ul
-        categorias.forEach((cat) => {
-            let divCat = document.getElementById(cat.toLowerCase());
-            let listaCat = document.createElement('ul')
-    
-            //Por cada plato, comparo su categoria con la actual y si coincide le creo un item li en la lista ul
-            platos.forEach((plato) =>{
-                if(plato.cat === cat){
-                    let platoItem = document.createElement('li');
-    
-                    let h4 = document.createElement('h4');
-                    h4.textContent = plato.nombre;
-    
-                    let button = document.createElement('button');
-                    button.textContent = `$${plato.precio}`;
-                    button.setAttribute('value',plato.id); 
-                    button.addEventListener('click',()=>{console.log(`boton cliqueado ${button.value}`);agregarCarrito(plato)})
-    
-                    let shoppingCartImg = document.createElement('img');
-                    shoppingCartImg.setAttribute('src',"./Iconos/shoppingCart/apple-touch-icon.png")
-                    button.appendChild(shoppingCartImg);
-    
-                    platoItem.appendChild(h4);
-                    platoItem.appendChild(button);
-                    
-                    listaCat.appendChild(platoItem);
-                }
-                
-            })
-            divCat.appendChild(listaCat)
-        });*/
-    
-    }
+    }    
+}

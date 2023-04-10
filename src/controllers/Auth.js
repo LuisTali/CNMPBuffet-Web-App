@@ -1,6 +1,6 @@
 import { getConnection,sql,querys } from "../database";
 import {User} from '../models/User'
-import { getFoodsValues } from "./Food";
+import { getFoodsValues, filterArrayFoods } from "./Food";
 
 export const showLogin = async(req,res) =>{
     try {
@@ -27,12 +27,23 @@ export const login = async(req,res) => {
             ((user!==undefined) ? console.log(`Usuario creado, Admin: ${user.getAdmin()}`) : console.log('Usuario undefinido'));
             
             let foods = await getFoodsValues();
-
-            //Podria cambiar la query y traer las comidas con el nombre de la categoria escrito y no su id
-            let guarniciones = foods.filter((food) => food.idCategoria == 7);
-            let carnesBlancas = foods.filter((food) => food.idCategoria == 6);
-            let ensaladas = foods.filter((food) => food.idCategoria == 8);
-            res.render('home.handlebars',{success:true, User:user, guarniciones:guarniciones, carnesBlancas:carnesBlancas, ensaladas: ensaladas, admin:user.getAdmin(), msg:`Welcome back ${user.getUsername()}`})
+            
+            let pescados = filterArrayFoods(foods,'pescados y mariscos');
+            let guarniciones = filterArrayFoods(foods,'guarnicion')
+            let cafeteria = filterArrayFoods(foods,'cafeteria');
+            let carnesBlancas = filterArrayFoods(foods,'carnes blancas');
+            let carnesRojas = filterArrayFoods(foods,'carnes rojas');
+            let ensaladas = filterArrayFoods(foods,'ensaladas');
+            let entradas = filterArrayFoods(foods,'entradas');
+            let sandwich = filterArrayFoods(foods,'sandwich');
+            let pastas = filterArrayFoods(foods,'pastas');
+            let menuInfantil = filterArrayFoods(foods,'menu infantil');
+            let cervezas = filterArrayFoods(foods,'cervezas');
+            let bebidas = filterArrayFoods(foods,'bebidas');
+            let arroces = filterArrayFoods(foods,'arroces');
+            let postres = filterArrayFoods(foods,'postres');
+            
+            res.render('home.handlebars',{success:true, User:user, admin:user.getAdmin(), msg:`Welcome back ${user.getUsername()}`,guarniciones:guarniciones,carnesRojas:carnesRojas,carnesBlancas:carnesBlancas,pastas:pastas,sandwichs:sandwich,pescados:pescados,entradas:entradas,ensaladas:ensaladas,cafeteria:cafeteria,menuInfantil:menuInfantil,cervezas:cervezas,bebidas:bebidas,arroces:arroces,postres:postres})
         }
     } catch (error) {
         return res.status(500).json({success:false,msg:error.message});

@@ -8,20 +8,20 @@
     {{/if}}
     <div class="opciones">
         <ul class="categorias">
-            <li><a href="#">Entradas</a> </li>
+            <li><a href="#entradas">Entradas</a> </li>
             <li><a href="#sandwich">Sandwich</a> </li>
-            <li><a href="#pescados y mariscos">Pescados y Mariscos</a> </li>
-            <li><a href="#">Pastas</a> </li>
-            <li><a href="#">Carnes Rojas</a> </li>
-            <li><a href="#carnes blancas">Carnes Blancas</a> </li>
-            <li><a href="#">Guarnicion</a> </li>
-            <li><a href="#">Ensaladas</a> </li>
-            <li><a href="#">Arroces</a> </li>
+            <li><a href="#pescados-y-mariscos">Pescados y Mariscos</a> </li>
+            <li><a href="#pastas">Pastas</a> </li>
+            <li><a href="#carnes-rojas">Carnes Rojas</a> </li>
+            <li><a href="#carnes-blancas">Carnes Blancas</a> </li>
+            <li><a href="#guarniciones">Guarnicion</a> </li>
+            <li><a href="#ensaladas">Ensaladas</a> </li>
+            <li><a href="#arroces">Arroces</a> </li>
             <li><a href="#postres">Postres</a> </li>
-            <li><a href="#">Cafeteria</a></li>
-            <li><a href="#">Bebidas</a></li>
-            <li><a href="#">Cervezas</a></li>
-            <li><a href="#">Menu Infantil</a></li>
+            <li><a href="#cafeteria">Cafeteria</a></li>
+            <li><a href="#bebidas">Bebidas</a></li>
+            <li><a href="#cervezas">Cervezas</a></li>
+            <li><a href="#menu-infantil">Menu Infantil</a></li>
         </ul>
     </div>
     <div class="container" id="infoDiv">
@@ -79,35 +79,56 @@
 
     <div class="menu">
         
-        <div class="categoria">
+        <div class="categoria" id="entradas">
             <h3>Entradas</h3>
+            <ul>
+            {{#each entradas}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
         <div class="categoria" id="sandwich">
-            <h3>Sandwich</h3>
+            <h3>Sandwichs</h3>
+            <ul>
             {{#each sandwichs}}
-               <li><h4>{{nombre}}</h4><button>{{precio}}</button></li>
+               <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
             {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria" id="pescados y mariscos">
+        <div class="categoria" id="pescados-y-mariscos">
             <h3>Pescados y Mariscos</h3>
-            
+            <ul>
+            {{#each pescados}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="pastas">
             <h3>Pastas</h3>
+            <ul>
+            {{#each pastas}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria" id="carnes rojas">
+        <div class="categoria" id="carnes-rojas">
             <h3>Carnes Rojas</h3>
+            <ul>
+            {{#each carnesRojas}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria" id="carnes blancas">
+        <div class="categoria" id="carnes-blancas">
             <h3>Carnes Blancas</h3>
             <ul>
             {{#each carnesBlancas}}
-                <li><h4>{{nombre}}</h4><button>${{precio}}<img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}}<img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
             {{/each}}
             </ul>
         </div>
@@ -116,72 +137,98 @@
             <h3>Guarnicion</h3>
             <ul>
             {{#each guarniciones}}
-                <li><h4>{{nombre}}</h4><button>${{precio}}<img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}}<img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
             {{/each}}
             </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="ensaladas">
             <h3>Ensaladas</h3>
             <ul>
             {{#each ensaladas}}
-                <li><h4>{{nombre}}</h4><button>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
             {{/each}}
             </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="arroces">
             <h3>Arroces</h3>
+            <ul>
+            {{#each arroces}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
         <div class="categoria" id="postres">
             <h3>Postres</h3>
+            <ul>
+            {{#each postres}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="cafeteria">
             <h3>Cafeteria</h3>
+            <ul>
+            {{#each cafeteria}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="bebidas">
             <h3>Bebidas</h3>
+            <ul>
+            {{#each bebidas}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="cervezas">
             <h3>Cervezas</h3>
+            <ul>
+            {{#each cervezas}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
-        <div class="categoria">
+        <div class="categoria" id="menu-infantil">
             <h3>Menu Infantil</h3>
+            <ul>
+            {{#each menuInfantil}}
+                <li><h4>{{nombre}}</h4><button class="buyBtn" value='{ "id":{{idPlato}}, "nombre":"{{nombre}}", "precio":{{precio}} }'>${{precio}} <img src="/Iconos/shoppingCart/apple-touch-icon.png" alt=""></button></li>
+            {{/each}}
+            </ul>
         </div>
         
         <div id="details">
-        <button class="" id="order">
-            <span>ORDER</span>
-        </button>
-        <input type="text" disabled="true" id="subtotal">
+            <button id="order">
+                <span>ORDER</span>
+            </button>
+            <input type="text" disabled="true" id="subtotal">
         </div>
     </div>
-
-    
-    
 
     <!--Seccion para editar el plato del dia-->
     <div class="editInfo isInactive" id="editInfoDiv">
         <h3>Editar Plato del Dia</h3>
-            <div class="inputDiv">
-                <label for="">Plato del dia</label>
-                <input id="inputPlatoDia"type="text" placeholder="nombre del plato del dia" onkeyup="myFunctionName()" value="Plato del dia">
-            </div>
-            <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato" onkeyup=""></textarea>
-
-            <!--No se que tan mal esta colocar esto dentro de un form el cual no tiene mas utilidad que indicar que aqui se presenta un formulario, quizas al usar Node y actualizar el plato del dia eligiendolo desde un menu desplegable si necesite usar un Method en el form pero por ahora no-->
-            <div class="presentacionPrevia">
-                <h3>Presentacion previa</h3>
-                <h4 id="presentacionNombre">Nombre plato dia</h4>
-                <p id="presentacionDesc">Descripcion plato dia</p>
-            </div>
-            
-            <button id="edit">EDIT</button> 
+        <div class="inputDiv">
+            <label for="">Plato del dia</label>
+            <input id="inputPlatoDia"type="text" placeholder="nombre del plato del dia" value="Plato del dia">
+        </div>
+        <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato"onkeyup=""></textarea>
+        <!--No se que tan mal esta colocar esto dentro de un form el cual no tiene mas utilidad que indicar que aquise presenta un formulario, quizas al usar Node y actualizar el plato del dia eligiendolo desde un menudesplegable si necesite usar un Method en el form pero por ahora no-->
+        <div class="presentacionPrevia">
+            <h3>Presentacion previa</h3>
+            <h4 id="presentacionNombre">Nombre plato dia</h4>
+            <p id="presentacionDesc">Descripcion plato dia</p>
+        </div>
+        
+        <button id="edit">EDIT</button> 
     </div>
 
     {{> footer}}

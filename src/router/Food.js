@@ -7,6 +7,4 @@ router.get('/',getAllFoods);
 
 router.get('/:id',getFoodById);
 
-router.get('/:id/editDailyDish',showEditDailyDish);
-
 export default router;
