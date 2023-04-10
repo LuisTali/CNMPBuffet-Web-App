@@ -66,7 +66,8 @@ function start(){
     }
  
     //Al cliquear Edit en la seccion de info del plato del dia se muestra el index con la info actualizada
-    editBtn.addEventListener('click',() => {
+    editBtn.addEventListener('click',(e) => {
+        e.preventDefault();
         let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
         let descriptionPlatoDia = document.getElementById('descripcionPlatoDia').value;
     

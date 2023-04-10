@@ -65,3 +65,22 @@ const deleteFilteredFoodsArray = (foods,nombreCat) =>{
     foods = foods.filter((food) => (food.nombreCat).toLowerCase() != nombreCat);
     return foods;
 }
+
+export const updateDishesPrice = async(req,res) =>{
+    try {
+        let {categoria,porcentaje,opcionSeleccionada} = req.body;
+        /*const pool = await getConnection();
+        if(opcionSeleccionada === 'aumentar'){
+            const result = await pool.request().input("aumento",sql.Float,porcentaje).input("categoriaAumento",sql.VarChar,nombreCat).query(querys.increasePriceByCategory);
+        }else if(opcionSeleccionada === 'disminuir'){
+            const result = await pool.request().input("aumento",sql.Float,porcentaje).input("categoriaAumento",sql.VarChar,nombreCat).query(querys.decreasePriceByCategory);
+        }
+        if (result.rowsAffected > 0) {
+            res.render('home.handlebars');
+        }*/
+        console.log(categoria,porcentaje,opcionSeleccionada);
+        return res.status(200).json({success:true,data:{Cat: categoria, Por:porcentaje, Opc:opcionSeleccionada}});
+    } catch (error) {
+        
+    }
+}
