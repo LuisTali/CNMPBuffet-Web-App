@@ -14,6 +14,9 @@ import {engine} from 'express-handlebars';
 import foodsRoutes from './router/Food';
 import authRoutes from './router/Auth';
 
+//Para crear sesiones y almacenar el user loggeado.
+import session from 'express-session'; 
+
 //Uso los recursos estaticos
 app.use(express.static(path.join(__dirname,"/public")))
 
@@ -25,6 +28,13 @@ app.set("view engine", "handlebars");
 app.set("views",path.resolve(__dirname + "/views"))
 
 app.set("port",config.port);
+
+//Siempre antes del app.use(router) asi las rutas pueden acceder a session
+app.use(session({
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: true,
+}));
 
 app.use('/foods',foodsRoutes);
 app.use('/auth',authRoutes);

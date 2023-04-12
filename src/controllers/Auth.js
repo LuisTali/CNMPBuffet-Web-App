@@ -26,7 +26,11 @@ export const login = async(req,res) => {
             
             ((user!==undefined) ? console.log(`Usuario creado, Admin: ${user.getAdmin()}`) : console.log('Usuario undefinido'));
             
-            let foods = await getFoodsValues();
+            req.session.user = user;
+            req.session.loggedUser = 1;
+            res.redirect('/foods');
+            
+            /*let foods = await getFoodsValues();
             
             let pescados = filterArrayFoods(foods,'pescados y mariscos');
             let guarniciones = filterArrayFoods(foods,'guarnicion')
@@ -43,11 +47,21 @@ export const login = async(req,res) => {
             let arroces = filterArrayFoods(foods,'arroces');
             let postres = filterArrayFoods(foods,'postres');
             
-            res.render('home.handlebars',{success:true, User:user, admin:user.getAdmin(), msg:`Welcome back ${user.getUsername()}`,guarniciones:guarniciones,carnesRojas:carnesRojas,carnesBlancas:carnesBlancas,pastas:pastas,sandwichs:sandwich,pescados:pescados,entradas:entradas,ensaladas:ensaladas,cafeteria:cafeteria,menuInfantil:menuInfantil,cervezas:cervezas,bebidas:bebidas,arroces:arroces,postres:postres})
+            res.render('home.handlebars',{success:true, User:user, admin:user.getAdmin(), msg:`Welcome back ${user.getUsername()}`,guarniciones:guarniciones,carnesRojas:carnesRojas,carnesBlancas:carnesBlancas,pastas:pastas,sandwichs:sandwich,pescados:pescados,entradas:entradas,ensaladas:ensaladas,cafeteria:cafeteria,menuInfantil:menuInfantil,cervezas:cervezas,bebidas:bebidas,arroces:arroces,postres:postres})*/
         }
     } catch (error) {
         return res.status(500).json({success:false,msg:error.message});
     }
+}
+
+export const logOut = async(req,res)=>{
+    try {
+        req.session.destroy();
+        res.redirect('/foods');
+    } catch (error) {
+        res.status(400).json({success:false,msg:error.message});
+    }
+    
 }
 
 export const registerUser = async(req,res) =>{

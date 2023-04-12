@@ -1,12 +1,25 @@
 import { getConnection,querys,sql } from "../database";
+import {User} from '../models/User'
 
 export const getAllFoods = async(req,res)=>{
     try {
-    
+        let userLogged = undefined;
+        let admin = 0;
+
+        if(req.session.loggedUser == 1){
+            
+            userLogged = req.session.user;
+            admin = userLogged.admin;
+            userLogged = userLogged.username;
+            console.log(userLogged,admin);
+        }
+        
+
         const pool = await getConnection();
         let result = await pool.request().query(querys.getAllFoods);
        
         let foods= result.recordset;
+
         let pescados = filterArrayFoods(foods,'pescados y mariscos');
         let guarniciones = filterArrayFoods(foods,'guarnicion')
         let cafeteria = filterArrayFoods(foods,'cafeteria');
@@ -22,7 +35,7 @@ export const getAllFoods = async(req,res)=>{
         let arroces = filterArrayFoods(foods,'arroces');
         let postres = filterArrayFoods(foods,'postres');
 
-        res.render('home.handlebars',{admin:false,guarniciones:guarniciones,carnesRojas:carnesRojas,carnesBlancas:carnesBlancas,pastas:pastas,sandwichs:sandwich,pescados:pescados,entradas:entradas,ensaladas:ensaladas,cafeteria:cafeteria,menuInfantil:menuInfantil,cervezas:cervezas,bebidas:bebidas,arroces:arroces,postres:postres});
+        res.render('home.handlebars',{admin:admin,userLogged:userLogged,guarniciones:guarniciones,carnesRojas:carnesRojas,carnesBlancas:carnesBlancas,pastas:pastas,sandwichs:sandwich,pescados:pescados,entradas:entradas,ensaladas:ensaladas,cafeteria:cafeteria,menuInfantil:menuInfantil,cervezas:cervezas,bebidas:bebidas,arroces:arroces,postres:postres});
     } catch (error) {
         return res.status(400).json({success:false,msg:error.message});
     }
@@ -54,9 +67,7 @@ export const getFoodsValues = async()=>{
 
 //Filtra las comidas por categoria, retornando los platos de la categoria deseada
 export const filterArrayFoods = (foods,nombreCat) =>{
-    console.log(nombreCat);
     let array = foods.filter((food) => (food.nombreCat).toLowerCase() == nombreCat);
-    console.log(array);
     return array;
 }
 
@@ -69,18 +80,21 @@ const deleteFilteredFoodsArray = (foods,nombreCat) =>{
 export const updateDishesPrice = async(req,res) =>{
     try {
         let {categoria,porcentaje,opcionSeleccionada} = req.body;
-        /*const pool = await getConnection();
-        if(opcionSeleccionada === 'aumentar'){
-            const result = await pool.request().input("aumento",sql.Float,porcentaje).input("categoriaAumento",sql.VarChar,nombreCat).query(querys.increasePriceByCategory);
-        }else if(opcionSeleccionada === 'disminuir'){
-            const result = await pool.request().input("aumento",sql.Float,porcentaje).input("categoriaAumento",sql.VarChar,nombreCat).query(querys.decreasePriceByCategory);
-        }
-        if (result.rowsAffected > 0) {
-            res.render('home.handlebars');
-        }*/
         console.log(categoria,porcentaje,opcionSeleccionada);
-        return res.status(200).json({success:true,data:{Cat: categoria, Por:porcentaje, Opc:opcionSeleccionada}});
+        const pool = await getConnection();
+        let result;
+        if(opcionSeleccionada === 'aumentar'){
+            console.log('Opcion Aumentar');
+            result = await pool.request().input("aumento",sql.Float,porcentaje).input("categoriaAumento",sql.VarChar,categoria).query(querys.increasePriceByCategory);
+            return res.json({redirect: '/foods'})
+        }else if(opcionSeleccionada === 'disminuir'){
+            console.log('Opcion Disminuir');
+            result = await pool.request().input("decremento",sql.Float,porcentaje).input("categoriaDecremento",sql.VarChar,categoria).query(querys.decreasePriceByCategory);
+            console.log(result);
+            return res.json({redirect: '/foods'})
+        }
     } catch (error) {
-        
+        console.log(error.message);
+        return res.status(400).json({success:false,msg:error.message});
     }
 }

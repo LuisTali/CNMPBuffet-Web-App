@@ -5,8 +5,9 @@
             <li><a href="#info">CONTACT</a> </li>
             {{#if admin}} 
                 <li><button id="editInfo">EDITAR INFO</button></li> 
+                <li><a href="/auth/logOut">LOG OUT</a></li>
             {{else}}
-                <li><a href="http://localhost:5000/auth/showLogin">LOG IN</a></li>
+                <li><a href="/auth/showLogin">LOG IN</a></li>
             {{/if}}
         </ul>    
     </nav>

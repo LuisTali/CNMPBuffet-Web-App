@@ -286,30 +286,40 @@ button{
     
 }
 
-#details{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
+/*Inicio seccion Details-Order Styles*/
+    #details{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        
+    }
 
-#order{
-    height: 30px;
-}
+    #details #order{
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px  black;
+        font-weight: 600;
+    }
 
-#subtotal{
-    margin: 10px 30px;
-    width: 100px;
-    border-radius: 5px;
-    height: 30px;
-    text-align: center;
-    background: none;
-}
+    #order{
+        height: 30px;
+    }
 
-#subtotal::placeholder{
-    color: black;
-    font-weight: 600;
-}
+    #subtotal{
+        margin: 10px 30px;
+        width: 100px;
+        border-radius: 5px;
+        height: 30px;
+        text-align: center;
+        background: none;
+        box-shadow: 0px 1px 6px  black;
+    }
+
+    #subtotal::placeholder{
+        color: black;
+        font-weight: 600;
+    }
+/*Fin seccion Details-Order Styles*/
 
 /*Inicio seccion Editar-PlatodelDia Styles*/
     .editInfo{
@@ -378,7 +388,8 @@ button{
         margin-top: 16px;
         font-size: 40px;
     }
-        /*Inicio seccion Select Aumentar/Disminuir Styles*/
+    
+    /*Inicio seccion Select Aumentar/Disminuir Styles*/
         .editInfo #opcionesPrecios{
             display: flex;
             flex-direction: column;
@@ -398,11 +409,9 @@ button{
         .editInfo #opcionesPrecios .inputRadioModPrecio{
             display: flex;
             margin: 8px 0px 8px 0px;
-        }
-
-        
+        }  
+    /*Fin seccion Select Aumentar/Disminuir Styles*/
 /*Fin seccion Editar-PlatodelDia Styles*/
-
 
 /*Inicio seccion Footer.handlebars Styles*/
     footer{
@@ -433,36 +442,36 @@ button{
 /*Fin seccion Footer.handlebars Styles*/
 
 /*Estilos para la carta cuando busco un plato por Id*/
-.foodSearched{
-    margin-top: 100px;
-    width: 100%;
-    height: 75vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.foodSearched .card{
-    display: flex;
-    width: 70%;
-    height: 60vh;
-    background-size: cover;
-    box-shadow: 1;
-    box-shadow: 0px 3px 3px  black;
-    margin-right: 16px;
-    border-radius: 20px;
-}
-.foodSearched .card .texto{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 90%;
-    margin: 8px 0px 0px 16px;
-    font-weight: 500;
-}
-.foodSearched .card .texto h4{background-color: bisque;} .foodSearched .card .texto p{background-color: bisque;}
+    .foodSearched{
+        margin-top: 100px;
+        width: 100%;
+        height: 75vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .foodSearched .card{
+        display: flex;
+        width: 70%;
+        height: 60vh;
+        background-size: cover;
+        box-shadow: 1;
+        box-shadow: 0px 3px 3px  black;
+        margin-right: 16px;
+        border-radius: 20px;
+    }
+    .foodSearched .card .texto{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90%;
+        margin: 8px 0px 0px 16px;
+        font-weight: 500;
+    }
+    .foodSearched .card .texto h4{background-color: bisque;} .foodSearched .card .texto p{background-color: bisque;}
 /*Fin de la seccion searchFoodById*/
 
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
     body{
         overflow-y: scroll;
     }
@@ -475,7 +484,7 @@ button{
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 
     nav li button{ 
@@ -528,16 +537,17 @@ button{
     
     .menu{display: block; width: 100%; margin: 0px; text-align: left;}/*Chequear si sigue igual al modificar menu en tamaño original*/
 
-    .menu .categoria ul li button{
+    .menu .categoria ul li .buyBtn{
         display: flex;
         font-size: 1em;
-        width: auto;
+        width: 82px;
         height: 30px;
         padding: 0px 6px 0px 6px;
         margin-right: 16px;
         align-items: center;
         font-weight: 600;
     }
+    .menu .categoria ul li{margin:6px 8px 6px 8px}
 
     .menu .categoria ul li h4{
         font-size: 1em; 
@@ -594,8 +604,7 @@ button{
         border-bottom-right-radius: 200px;*/
     }
 
-    .menu .categoria ul li{margin:6px 8px 6px 8px}
-    .menu .categoria ul li h4{font-size: 1em;}
+    
     
     #lineaMoviles{
         display: flex;
@@ -606,30 +615,71 @@ button{
         background-color: black;
     }
 
+    #details{
+        border-top: 1px solid black;
+        width: max-content; /*Para que ocupe el tamaño de los botones y no mas*/
+        justify-content: center;
+        margin-left:20%;
+        margin-top: 16px;
+    }
+
+    #details #order{
+        height: 30px;
+        margin: 10px 30px 6px 0px;
+        width: 100px;
+    }
+
+    #details #subtotal{
+        height: 30px;
+        margin: 10px 0px 6px 30px;
+        width: 100px;
+    }
+
     footer p{
         white-space: nowrap;
     }
 }
 
 @media screen and (max-width:350px){
+    nav ul li {
+        font-size: 0.75em;
+    }
+
     .menu .categoria ul li{
         display: flex;
         justify-content: space-between;
         height: 40px;
         padding: 8px 0px 8px 0px;
-        margin: 24px 16px 24px 16px;
+        margin: 24px 8px 24px 8px;
         align-items: center;
         font-size: 1em;
     }
 
-    .menu .categoria ul li button{
+    .menu .categoria ul li .buyBtn{
         margin-right: 0px;
+        max-width: 78px;
+        width: 100%;
     }
 
     .container .container-main .card{
         margin:0px
     }
     
+    #details{
+        width: 70%;
+        margin-left: 15%;
+        justify-content: space-between;
+    }
+
+    #details #order{
+        width: 80px;
+        margin-right: 20px;
+    }
+    #details #subtotal{
+        width: 80px;
+        margin-left: 20px;
+    }
+
     footer #datoTelefono{
         flex-direction: column;
         margin-bottom: 8px;

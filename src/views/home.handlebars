@@ -3,8 +3,8 @@
     
 <body>
     {{> nav-bar}}
-    {{#if success}}
-        <script>alert('{{msg}}')</script>
+    {{#if admin}}
+        <script>alert('Welcome back {{userLogged}}')</script>
     {{/if}}
     <div class="opciones">
         <ul class="categorias">
@@ -209,7 +209,7 @@
             <button id="order">
                 <span>ORDER</span>
             </button>
-            <input type="text" disabled="true" id="subtotal">
+            <input type="text" disabled="true" id="subtotal" placeholder="$0">
         </div>
     </div>
 
@@ -238,49 +238,54 @@
                     <div class="inputRadioModPrecio"><label for="">Disminuir Precios </label><input type="radio" name="opcionPrecios" id="" value="disminuir"></div>
                 </div>
                 <div class="categoriaModificar">
-                <h3>Categoria a modificar Precio</h3>
-                <select id="categoria">
-                    <option value="Entradas">Entradas</option>
-                    <option value="Sandwich">Sandwich</option>
-                    <option value="Pescados y Mariscos">Pescados y Mariscos</option>
-                    <option value="Pastas">Pastas</option>
-                    <option value="Carnes Rojas">Carnes Rojas</option>
-                    <option value="Carnes Blancas">Carnes Blancas</option>
-                    <option value="Guarnicion">Guarnicion</option>
-                    <option value="Ensaladas">Ensaladas</option>
-                    <option value="Arroces">Arroces</option>
-                    <option value="Postres">Postres</option>
-                    <option value="Cafeteria">Cafeteria</option>
-                    <option value="Bebidas">Bebidas</option>
-                    <option value="Cervezas">Cervezas</option>
-                    <option value="Menu infantil">Menu infantil</option>
-                </select>
-                <input type="number" name="" id="porcentaje" placeholder="Porcentaje en enteros y decimales">
-                <button type="submit" id="submitUpdate">Actualizar Price</button>
-            </form>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-            crossorigin="anonymous"
-            ></script>
-            <script>
-                //Obtiene los valores ingresados en los inputs, los procesa y con Axios realiza un post a la ruta updatePrices para actualizar los precios de la categoria elegida
-                const btn = document.getElementById("submitUpdate");
-                btn.onclick = async (e)=>{
-                    e.preventDefault();
-                    console.log('Click');
-                    const select = document.getElementById("categoria");
-                    const categoriaSelected = select.options[select.selectedIndex].text;
-                    const opcionSelected = document.querySelector('input[name="opcionPrecios"]:checked').value;
-                    const porcentajeSelected = Number(document.getElementById('porcentaje').value)/100;
-                    
-                    try{
-                        const {data} = await axios.post('/foods/updatePrices',{categoria:categoriaSelected,porcentaje:porcentajeSelected,opcionSeleccionada:opcionSelected})
-                        console.log(data);
-                    }catch(error){
-                        console.log(error.message);
+                    <h3>Categoria a modificar Precio</h3>
+                    <select id="categoria">
+                        <option value="Entradas">Entradas</option>
+                        <option value="Sandwich">Sandwich</option>
+                        <option value="Pescados y Mariscos">Pescados y Mariscos</option>
+                        <option value="Pastas">Pastas</option>
+                        <option value="Carnes Rojas">Carnes Rojas</option>
+                        <option value="Carnes Blancas">Carnes Blancas</option>
+                        <option value="Guarnicion">Guarnicion</option>
+                        <option value="Ensaladas">Ensaladas</option>
+                        <option value="Arroces">Arroces</option>
+                        <option value="Postres">Postres</option>
+                        <option value="Cafeteria">Cafeteria</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Cervezas">Cervezas</option>
+                        <option value="Menu infantil">Menu infantil</option>
+                    </select>
+                    <input type="number" name="" id="porcentaje" placeholder="Porcentaje en enteros y decimales">
+                    <button type="submit" id="submitUpdate">Actualizar Price</button>
+                    </form>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+                    crossorigin="anonymous"
+                    ></script>
+                    <script>
+                    //Obtiene los valores ingresados en los inputs, los procesa y con Axios realiza un post a la ruta updatePrices para actualizar los precios de la categoria elegida
+                    const btn = document.getElementById("submitUpdate");
+                    btn.onclick = async (e)=>{
+                        e.preventDefault();
+                        console.log('Click');
+                        const select = document.getElementById("categoria");
+                        const categoriaSelected = select.options[select.selectedIndex].text;
+                        const opcionSelected = document.querySelector('input[name="opcionPrecios"]:checked').value;
+                        const porcentajeSelected = Number(document.getElementById('porcentaje').value)/100;
+                        
+                        try{
+                            //Realiza un post, si aumenta o disminuye correctamente se recibe en redirect = '/foods' trayendo al admin al homePage
+                            axios.post('/foods/updatePrices',{categoria:categoriaSelected,porcentaje:porcentajeSelected,opcionSeleccionada:opcionSelected}).then((response)=>{
+                                if(response.data.redirect == '/foods'){
+                                    window.location = '/foods'
+                                }
+                            })
+                        }catch(error){
+                            console.log(error.message);
+                        }
                     }
-                }
-            </script>
-            <button id="edit">EDIT</button>
+                    </script>
+                    <button id="edit">EDIT</button>
+                </div>
             </div> 
         </div>
     </div>
