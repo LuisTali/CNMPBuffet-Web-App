@@ -1,5 +1,4 @@
 window.onload = start();
-
 function start(){
 
     //En index page
@@ -68,7 +67,7 @@ function start(){
     //Al cliquear Edit en la seccion de info del plato del dia se muestra el index con la info actualizada
     editBtn.addEventListener('click',(e) => {
         e.preventDefault();
-        let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
+        /*let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
         let descriptionPlatoDia = document.getElementById('descripcionPlatoDia').value;
     
         mainDiv.classList.remove('isInactive');
@@ -82,7 +81,7 @@ function start(){
         document.getElementById('nombrePDia').innerHTML=nombrePlatoDia;
         document.getElementById('descripcionPDia').innerHTML = descriptionPlatoDia;
 
-        footer.style = "display: normal;"
+        footer.style = "display: normal;"*/
         }
     )
     

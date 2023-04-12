@@ -68,8 +68,8 @@
 
         <div class="container-aside">
                 <h2>Menu del Dia</h2>
-                <p id="nombrePDia">Nombre plato del dia</p>
-                <p id="descripcionPDia">Descripcion</p>
+                <p id="nombrePDia">{{platoDia.nombre}}</p>
+                <p id="descripcionPDia">{{platoDia.descripcion}}</p>
         </div>
 
         <hr id="lineaMoviles">
@@ -213,83 +213,7 @@
         </div>
     </div>
 
-    <!--Inicio seccion editar Plato del Dia-->
-    <div class="editInfo isInactive" id="editInfoDiv">
-        <div id="editPanel">
-            <h3>Editar Plato del Dia</h3>
-            <div class="inputDiv">
-                <label for="">Plato del dia</label>
-                <input id="inputPlatoDia"type="text" value="Plato del dia">
-            </div>
-            <label for="">Descripcion plato del dia</label>
-            <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato"onkeyup=""></textarea>
-            <div class="presentacionPrevia">
-                <h3>Presentacion previa</h3>
-                <h4 id="presentacionNombre">Nombre plato dia</h4>
-                <p id="presentacionDesc">Descripcion plato dia</p>
-            </div>
-            
-            
-            <div id="modificacionPrecios">
-            <form action="#" method="">
-                <h4>Desea Aumentar o Disminuir los Precios?</h4>
-                <div id="opcionesPrecios">
-                    <div class="inputRadioModPrecio"><label for="">Aumentar Precios</label><input type="radio" name="opcionPrecios" id="" value="aumentar" checked></div>
-                    <div class="inputRadioModPrecio"><label for="">Disminuir Precios </label><input type="radio" name="opcionPrecios" id="" value="disminuir"></div>
-                </div>
-                <div class="categoriaModificar">
-                    <h3>Categoria a modificar Precio</h3>
-                    <select id="categoria">
-                        <option value="Entradas">Entradas</option>
-                        <option value="Sandwich">Sandwich</option>
-                        <option value="Pescados y Mariscos">Pescados y Mariscos</option>
-                        <option value="Pastas">Pastas</option>
-                        <option value="Carnes Rojas">Carnes Rojas</option>
-                        <option value="Carnes Blancas">Carnes Blancas</option>
-                        <option value="Guarnicion">Guarnicion</option>
-                        <option value="Ensaladas">Ensaladas</option>
-                        <option value="Arroces">Arroces</option>
-                        <option value="Postres">Postres</option>
-                        <option value="Cafeteria">Cafeteria</option>
-                        <option value="Bebidas">Bebidas</option>
-                        <option value="Cervezas">Cervezas</option>
-                        <option value="Menu infantil">Menu infantil</option>
-                    </select>
-                    <input type="number" name="" id="porcentaje" placeholder="Porcentaje en enteros y decimales">
-                    <button type="submit" id="submitUpdate">Actualizar Price</button>
-                    </form>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-                    crossorigin="anonymous"
-                    ></script>
-                    <script>
-                    //Obtiene los valores ingresados en los inputs, los procesa y con Axios realiza un post a la ruta updatePrices para actualizar los precios de la categoria elegida
-                    const btn = document.getElementById("submitUpdate");
-                    btn.onclick = async (e)=>{
-                        e.preventDefault();
-                        console.log('Click');
-                        const select = document.getElementById("categoria");
-                        const categoriaSelected = select.options[select.selectedIndex].text;
-                        const opcionSelected = document.querySelector('input[name="opcionPrecios"]:checked').value;
-                        const porcentajeSelected = Number(document.getElementById('porcentaje').value)/100;
-                        
-                        try{
-                            //Realiza un post, si aumenta o disminuye correctamente se recibe en redirect = '/foods' trayendo al admin al homePage
-                            axios.post('/foods/updatePrices',{categoria:categoriaSelected,porcentaje:porcentajeSelected,opcionSeleccionada:opcionSelected}).then((response)=>{
-                                if(response.data.redirect == '/foods'){
-                                    window.location = '/foods'
-                                }
-                            })
-                        }catch(error){
-                            console.log(error.message);
-                        }
-                    }
-                    </script>
-                    <button id="edit">EDIT</button>
-                </div>
-            </div> 
-        </div>
-    </div>
-    <!--Fin seccion editar Plato del Dia-->
+    {{> editPanel}}
 
     {{> footer}}
 
