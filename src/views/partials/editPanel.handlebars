@@ -218,6 +218,7 @@
 
                         let ulMenuInfantil = document.getElementsByClassName("liIterar");
                         for(let i =0; i<ulMenuInfantil.length; i++){
+                            //Por cada li en el cual itero, obtengo todos sus inputs, de esta forma accedo al id del plato con inputs[0] y al precio modificado con inputs[1], si este ultimo es == "" quiere decir que el admin no lo desea modificar.
                             let inputs = ulMenuInfantil[i].getElementsByTagName("input")
                             console.log(inputs);
                             if(inputs[1].value != ""){
