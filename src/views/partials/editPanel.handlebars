@@ -47,6 +47,184 @@
                     }
                 } 
             </script>
+            <div id="menuModificarPrecios">
+                        <button class="acordion">Entradas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each entradas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Sandwichs</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each sandwichs}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Pescados</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each pescados}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Pastas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each pastas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">CarnesRojas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each carnesRojas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">CarnesBlancas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each carnesBlancas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Guarniciones</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each guarniciones}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Ensaladas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each ensaladas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Arroces</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each arroces}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Postres</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each postres}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Menu Infantil</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each cafeteria}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Bebidas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each bebidas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Cervezas</button>
+                        <div class="panel notShow">
+                            <ul>
+                                {{#each cervezas}}
+                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <button class="acordion">Menu Infantil</button>
+                        <div class="panel notShow">
+                            <ul id="ulMenuInfantil">
+                                {{#each menuInfantil}}
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
+                                <input type="text" disabled value="{{idPlato}}" style="display: none;">
+                                <label for="">Edite nuevo precio</label><input type="number" value=3 placeholder="{{precio}}">
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    <script>
+                        let buttons = document.getElementsByClassName("acordion");
+                        console.log(buttons);
+                        for(let i=0;i<buttons.length;i++){
+                            buttons[i].onclick = ()=>{
+                                console.log(buttons[i]);
+                                buttons[i].classList.toggle('active');
+                                console.log(buttons[i].nextElementSibling);
+                                buttons[i].nextElementSibling.classList.toggle("notShow");
+                                buttons[i].nextElementSibling.classList.toggle("show");
+                            }
+                        }  
+
+                        let ulMenuInfantil = document.getElementsByClassName("liIterar");
+                        for(let i =0; i<ulMenuInfantil.length; i++){
+                            let inputs = ulMenuInfantil[i].getElementsByTagName("input")
+                            console.log(inputs);
+                            if(inputs[1].value != ""){
+                                console.log(Number(inputs[1].value) + ' Ya obtuve el input, ahora solo queda obtener los valores con un boton y pasarlos a un arreglo que tenga el id y el precio nuevo para actualizarlos usando un array y axios ')
+                            }
+                        }
+                    </script>
             <div id="modificacionPrecios">
             <form action="#" method="">
                 <h2 class="">Desea Aumentar o Disminuir los Precios?</h2>
@@ -55,6 +233,7 @@
                     <div class="inputRadioModPrecio"><label for="">Disminuir Precios </label><input type="radio" name="opcionPrecios" id="" value="disminuir"></div>
                 </div>
                 <div class="categoriaModificar">
+
                     <h3>Categoria a modificar Precio</h3>
                     <select id="categoria">
                         <option value="Entradas">Entradas</option>
@@ -75,7 +254,7 @@
                     <input type="number" name="" id="porcentaje" placeholder="Porcentaje en enteros y decimales">
                     <button type="submit" id="submitUpdate">ACTUALIZAR PRECIO</button>
                     </form>
-    
+                    
                     <script>
                     //Obtiene los valores ingresados en los inputs, los procesa y con Axios realiza un post a la ruta updatePrices para actualizar los precios de la categoria elegida
                     const btn = document.getElementById("submitUpdate");

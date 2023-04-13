@@ -76,17 +76,7 @@ function start(){
         menu.classList.remove('isInactive');
         editInfoDiv.classList.add('isInactive');
         lineaMenu.classList.remove('isInactive');
-        footer.style = "display: normal;"
-
-        /*
-        let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
-        let descriptionPlatoDia = document.getElementById('descripcionPlatoDia').value;
-        
-        console.log(nombrePlatoDia + ', Nombre plato');
-        console.log(descriptionPlatoDia + ', Descripcion plato');
-    
-        document.getElementById('nombrePDia').innerHTML=nombrePlatoDia;
-        document.getElementById('descripcionPDia').innerHTML = descriptionPlatoDia;*/ 
+        footer.style = "display: normal;" 
         }
     )
     
