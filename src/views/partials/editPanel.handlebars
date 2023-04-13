@@ -1,8 +1,9 @@
 <!--Inicio seccion editar Plato del Dia-->
-    <div class="editInfo isInactive" id="editInfoDiv">
+    <div class="isInactive editInfo " id="editInfoDiv">
         <div id="editPanel">
-            <h3>Elija un plato cargado anteriormente</h3>
-            <div class="inputDiv" id="eligePlato">
+            <button id="back"><</button>
+            <div class="inputDiv" id="platosPrecargados">
+                <h2>Elija un plato cargado anteriormente</h2>
                 <select id="eligePlatoDia" onchange=" location.href = 'foods/updateDishOfTheDay/' + this.value ">
                     {{#each listaPlatosDia}}
                         <option value="{{idPlatoDia}}">{{nombre}}</option>
@@ -11,19 +12,21 @@
                     <option value="" disabled selected>{{platoDia.nombre}}</option>
                 </select>
             </div>
-            <h3>O Cargue un nuevo Plato del Dia</h3>
+            <h2 class="separador">O Cargue un nuevo Plato del Dia</h2>
             <div class="inputDiv">
                 <label for="">Plato del dia</label>
-                <input id="inputPlatoDia"type="text" value="Plato del dia">
+                <input id="inputPlatoDia"type="text">
             </div>
-            <label for="">Descripcion plato del dia</label>
-            <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato"onkeyup=""></textarea>
+            <div class="inputDiv">
+                <label for="">Descripcion plato del dia</label>
+                <textarea name="" id="descripcionPlatoDia" cols="30" rows="10" placeholder="Descripcion del plato"onkeyup=""></textarea>
+            </div>
             <div class="presentacionPrevia">
                 <h3>Presentacion previa</h3>
                 <h4 id="presentacionNombre">Nombre plato dia</h4>
                 <p id="presentacionDesc">Descripcion plato dia</p>
             </div>
-            <button id="edit">EDIT</button>
+            <button id="edit">AÑADIR</button>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
             crossorigin="anonymous"
             ></script>
@@ -37,17 +40,16 @@
                         axios.post('/foods/newDishOfTheDay',{nombre,description}).then((response)=>{
                         if(response.data.redirect == '/foods'){
                             window.location = '/foods'
-                        }
+                        }else{alert(response.data.msg)}
                     });
                     }catch(error){
                         console.log(error.message);
                     }
-                }
-                
+                } 
             </script>
             <div id="modificacionPrecios">
             <form action="#" method="">
-                <h4>Desea Aumentar o Disminuir los Precios?</h4>
+                <h2 class="">Desea Aumentar o Disminuir los Precios?</h2>
                 <div id="opcionesPrecios">
                     <div class="inputRadioModPrecio"><label for="">Aumentar Precios</label><input type="radio" name="opcionPrecios" id="" value="aumentar" checked></div>
                     <div class="inputRadioModPrecio"><label for="">Disminuir Precios </label><input type="radio" name="opcionPrecios" id="" value="disminuir"></div>
@@ -71,7 +73,7 @@
                         <option value="Menu infantil" selected>Menu infantil</option>
                     </select>
                     <input type="number" name="" id="porcentaje" placeholder="Porcentaje en enteros y decimales">
-                    <button type="submit" id="submitUpdate">Actualizar Price</button>
+                    <button type="submit" id="submitUpdate">ACTUALIZAR PRECIO</button>
                     </form>
     
                     <script>
@@ -86,14 +88,17 @@
                         const porcentajeSelected = Number(document.getElementById('porcentaje').value)/100;
                         
                         try{
+                            if(porcentajeSelected == ""){throw new Error('Elija si desea aumentar o disminuir los precios e indique el porcentaje y la categoria a modificar');}
                             //Realiza un post, si aumenta o disminuye correctamente se recibe en redirect = '/foods' trayendo al admin al homePage
                             axios.post('/foods/updatePrices',{categoria:categoriaSelected,porcentaje:porcentajeSelected,opcionSeleccionada:opcionSelected}).then((response)=>{
                                 if(response.data.redirect == '/foods'){
                                     window.location = '/foods'
+                                }else{
+                                    alert(response.data.msg);
                                 }
                             })
                         }catch(error){
-                            console.log(error.message);
+                            alert(error.message);
                         }
                     }
                     </script>

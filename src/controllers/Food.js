@@ -1,5 +1,4 @@
 import { getConnection,querys,sql } from "../database";
-import {User} from '../models/User'
 
 export const getAllFoods = async(req,res)=>{
     try {
@@ -11,7 +10,6 @@ export const getAllFoods = async(req,res)=>{
             userLogged = req.session.user;
             admin = userLogged.admin;
             userLogged = userLogged.username;
-            console.log(userLogged,admin);
         }
         
         const pool = await getConnection();
@@ -36,8 +34,6 @@ export const getAllFoods = async(req,res)=>{
 
         let platoDia = await getDishOfTheDay();
         let listaPlatosDia = await getListDishesOfDay();
-        //console.log('Plato del dia' );
-        //console.log(platoDia);
         listaPlatosDia = listaPlatosDia.filter((dish) => dish.flagDia == false); //Lista las opciones que no son plato del dia actualmente
 
         res.render('home.handlebars',{admin:admin,userLogged:userLogged,platoDia:platoDia,listaPlatosDia:listaPlatosDia,guarniciones:guarniciones,carnesRojas:carnesRojas,carnesBlancas:carnesBlancas,pastas:pastas,sandwichs:sandwich,pescados:pescados,entradas:entradas,ensaladas:ensaladas,cafeteria:cafeteria,menuInfantil:menuInfantil,cervezas:cervezas,bebidas:bebidas,arroces:arroces,postres:postres});
@@ -65,16 +61,13 @@ export const updateDishesPrice = async(req,res) =>{
         const pool = await getConnection();
         let result;
         if(opcionSeleccionada === 'aumentar'){
-            console.log('Opcion Aumentar');
             result = await pool.request().input("aumento",sql.Float,porcentaje).input("categoriaAumento",sql.VarChar,categoria).query(querys.increasePriceByCategory);
             return res.json({redirect: '/foods'})
         }else if(opcionSeleccionada === 'disminuir'){
-            console.log('Opcion Disminuir');
             result = await pool.request().input("decremento",sql.Float,porcentaje).input("categoriaDecremento",sql.VarChar,categoria).query(querys.decreasePriceByCategory);
             return res.json({redirect: '/foods'})
         }
     } catch (error) {
-        console.log(error.message);
         return res.status(400).json({success:false,msg:error.message});
     }
 }
@@ -104,7 +97,6 @@ const deleteFilteredFoodsArray = (foods,nombreCat) =>{
 
 export const updateDishOfDay = async(req,res) =>{
     try {
-        console.log(req.protocol + '://' + req.get('host') + req.originalUrl);
         let idElegido = req.params.id;
         const pool = await getConnection();
         let result = await pool.request().input("idElegido",sql.Int,idElegido).query(querys.updateDishOfDay);
@@ -116,9 +108,9 @@ export const updateDishOfDay = async(req,res) =>{
 
 export const getDishOfTheDay = async() =>{
     try {
-            const pool = await getConnection();
-            let result = await pool.request().query(querys.getDishOfDay);
-            return result.recordset[0];
+        const pool = await getConnection();
+        let result = await pool.request().query(querys.getDishOfDay);
+        return result.recordset[0];
     } catch (error) {
         return json({success:false,msg:error.message});
     }
@@ -137,8 +129,7 @@ export const getListDishesOfDay = async()=>{
 export const insertDishOfDay = async(req,res)=>{
     try {
         const {nombre,description} = req.body;
-        console.log(req.body);
-        if(nombre!=null && description !=null){
+        if(nombre!="" && description !=""){
             console.log('Parametros no nulos');
             console.log(req.body);
             const pool = await getConnection();
@@ -148,7 +139,7 @@ export const insertDishOfDay = async(req,res)=>{
             }else{
                 return res.json({redirect:'/foods'});
             }
-        }
+        }else return res.json({msg:'Llene todos los campos antes de insertar un nuevo plato del dia o Elija uno de los ya cargados'});
     } catch (error) {
         return res.status(500).json({success:false,msg:error.msg});
     }

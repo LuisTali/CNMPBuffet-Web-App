@@ -19,3 +19,19 @@ CREATE TABLE Categoria(
 	idCategoria int IDENTITY(1,1) CONSTRAINT pkCategoria PRIMARY KEY,
 	nombreCat varchar(30) NOT NULL CONSTRAINT uqCategoria1 UNIQUE
 );
+CREATE TABLE PlatoDelDia(
+	idPlatoDia int IDENTITY(1,1) CONSTRAINT pkPlatoDia PRIMARY KEY,
+	nombre varchar(50) NOT NULL CONSTRAINT uqPlatoDia UNIQUE,
+	descripcion varchar(200),
+	flagDia bit null DEFAULT 1
+);
+
+--Trigger para que al actualizar el plato del dia se setee ese en estado 1 y el resto en 0, puediendo asi obtener el plato del dia
+CREATE TRIGGER updateFlagsDayTo0 ON PlatoDelDia
+AFTER UPDATE,INSERT
+AS 
+BEGIN 
+	UPDATE PlatoDelDia SET flagDia = 0 FROM PlatoDelDia AS pD 
+	LEFT JOIN INSERTED ON INSERTED.idPlatoDia = pD.idPlatoDia 
+	WHERE INSERTED.idPlatoDia is null;
+END

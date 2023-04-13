@@ -4,11 +4,13 @@ function start(){
     //En index page
     const editInfo = document.getElementById("editInfo")
     const mainDiv = document.getElementById("infoDiv")
+    const lineaMenu = document.getElementById("lineaMenuTextual");
     const editInfoDiv = document.getElementById("editInfoDiv")
     const categoriesDiv = document.querySelector(".opciones")
     const menu = document.querySelector(".menu");
     const editBtn = document.getElementById("edit");
     const footer = document.querySelector('footer');
+    const backBtn = document.getElementById("back");
     
     //En edit page.
     let nombrePlatoDia = document.getElementById('inputPlatoDia');
@@ -57,31 +59,34 @@ function start(){
     //Al cliquear Edit se muestra la seccion para ingresar la info del plato del dia
     editInfo.onclick = (e) =>{
         console.log('Click');
+        window.scroll(0,0) //Posiciona la ventana en el eje X: 0 y eje Y: 0
         mainDiv.classList.add('isInactive');
         categoriesDiv.classList.add('isInactive');
         menu.classList.add('isInactive');
         editInfoDiv.classList.remove('isInactive');
         footer.style = "display: none;"
+        lineaMenu.classList.add('isInactive');
     }
  
     //Al cliquear Edit en la seccion de info del plato del dia se muestra el index con la info actualizada
-    editBtn.addEventListener('click',(e) => {
+    backBtn.addEventListener('click',(e) => {
         e.preventDefault();
-        /*let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
-        let descriptionPlatoDia = document.getElementById('descripcionPlatoDia').value;
-    
         mainDiv.classList.remove('isInactive');
         categoriesDiv.classList.remove('isInactive');
         menu.classList.remove('isInactive');
         editInfoDiv.classList.add('isInactive');
+        lineaMenu.classList.remove('isInactive');
+        footer.style = "display: normal;"
+
+        /*
+        let nombrePlatoDia = document.getElementById('inputPlatoDia').value;
+        let descriptionPlatoDia = document.getElementById('descripcionPlatoDia').value;
         
         console.log(nombrePlatoDia + ', Nombre plato');
         console.log(descriptionPlatoDia + ', Descripcion plato');
     
         document.getElementById('nombrePDia').innerHTML=nombrePlatoDia;
-        document.getElementById('descripcionPDia').innerHTML = descriptionPlatoDia;
-
-        footer.style = "display: normal;"*/
+        document.getElementById('descripcionPDia').innerHTML = descriptionPlatoDia;*/ 
         }
     )
     
