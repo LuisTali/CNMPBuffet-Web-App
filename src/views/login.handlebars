@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
+<body id="loginBody">
     <div id="divLogIn">
+        <button><</button>
+        <script>
+            const backBtn = document.querySelector("button")
+            backBtn.onclick = ()=>{
+                window.location = '/foods';
+            }
+        </script>
         <h2>Log In</h2>
         <form action="/auth/login" method="POST" id="formLogin">
             <div class="inputLogin">
-                <label for="">Nombre de Usuario</label> <input type="text" name="username">
+                <label for="">Usuario</label> <input type="text" name="username">
             </div>
             <div class="inputLogin">
                 <label for="">Contraseña</label> <input type="password" name="password">

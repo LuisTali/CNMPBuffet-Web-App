@@ -4,10 +4,19 @@
             <li><a href="#">HOME</a> </li>                
             <li><a href="#info">CONTACT</a> </li>
             {{#if admin}} 
-                <li><button id="editInfo">EDITAR INFO</button></li> 
-                <li><a href="/auth/logOut">LOG OUT</a></li>
+                <li class="adminPcOptions"><button id="editInfo">EDITAR INFO</button></li> 
+                <li class="adminPcOptions"><a href="/auth/logOut">LOG OUT</a></li>
+                <li id="adminMovileDevices">
+                    <select name="" id="adminOptions">
+                        <option value="editInfo" >EDITAR INFO</option>
+                        <option value="/auth/logout">LOG OUT</option>
+                        <option value="Opciones Admin" selected disabled>OPCIONES ADMIN</option>
+                    </select>
+                </li>
             {{else}}
                 <li><a href="/auth/showLogin">LOG IN</a></li>
             {{/if}}
+            
+            
         </ul>    
     </nav>

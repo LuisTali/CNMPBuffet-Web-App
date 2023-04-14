@@ -27,11 +27,13 @@
                 <p id="presentacionDesc">Descripcion plato dia</p>
             </div>
             <button id="edit">AÑADIR</button>
+            <p id="alert1"></p>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
             crossorigin="anonymous"
             ></script>
             <script>
                 let addBtn = document.getElementById('edit');
+                let alert1 = document.getElementById("alert1"); //Para mostrar la alerta en caso de error
                 addBtn.onclick= async(e)=>{
                     e.preventDefault();
                     let nombre = document.getElementById('inputPlatoDia').value;
@@ -41,11 +43,11 @@
                         if(response.data.redirect == '/foods'){
                             window.location = '/foods'
                         }else{
-                            alert(response.data.msg)
+                            alert1.innerHTML = `* ${response.data.msg} *`;
                         }
                     });
                     }catch(error){
-                        console.log(error.message);
+                        alert1.innerHTML = error.message;
                     }
                 } 
             </script>
@@ -207,16 +209,17 @@
                                 {{/each}}
                             </ul>
                         </div>
+                        <hr id="" style="height: 3px; width:80%; margin:24px">
                         <button id="editPrices" style="width: 180px;">Editar Precios</button>
+                        <p id="alert2"></p>
                     </div>
                     <script>
+                        //Obtengo todos los botones de los menus desplegables para añadirles funcionalidad
                         let buttons = document.getElementsByClassName("acordion");
-                        console.log(buttons);
+                        
                         for(let i=0;i<buttons.length;i++){
                             buttons[i].onclick = ()=>{
-                                console.log(buttons[i]);
                                 buttons[i].classList.toggle('active');
-                                console.log(buttons[i].nextElementSibling);
                                 buttons[i].nextElementSibling.classList.toggle("notShow");
                                 buttons[i].nextElementSibling.classList.toggle("show");
                             }
@@ -229,7 +232,6 @@
                         let dishes = [];
 
                         editPricesBtn.onclick = ()=>{
-                            console.log('Edit Prices clickeado')
                             for(let i =0; i<platosValues.length; i++){
 
                                 //Por cada li en el cual itero, obtengo todos sus inputs, de esta forma accedo al id del plato con inputs[0] y al precio modificado con inputs[1], si este ultimo es == "" quiere decir que el admin no lo desea modificar.
@@ -252,7 +254,8 @@
                                     }
                                 })
                             }catch(error){
-                                alert(error.message);
+                                let alert = document.getElementById("alert2");
+                                alert.innerHTML = `* ${error.message} *`;
                             }
                         }  
                     </script>

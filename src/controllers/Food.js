@@ -102,12 +102,6 @@ export const filterArrayFoods = (foods,nombreCat) =>{
     return array;
 }
 
-//Filtra todas las comidas excepto las de la categoria pedida, haciendo que cada vez que se obtiene un arreglo de una categoria, sea eliminado del array general, facilitando la busqueda o filtrado
-const deleteFilteredFoodsArray = (foods,nombreCat) =>{
-    foods = foods.filter((food) => (food.nombreCat).toLowerCase() != nombreCat);
-    return foods;
-}
-
 export const updateDishOfDay = async(req,res) =>{
     try {
         let idElegido = req.params.id;
@@ -143,8 +137,6 @@ export const insertDishOfDay = async(req,res)=>{
     try {
         const {nombre,description} = req.body;
         if(nombre!="" && description !=""){
-            console.log('Parametros no nulos');
-            console.log(req.body);
             const pool = await getConnection();
             const result = await pool.request().input("nombre",sql.VarChar,nombre).input("descripcion",sql.VarChar,description).query(querys.insertDishOfDay);
             if(result.rowsAffected > 0){
