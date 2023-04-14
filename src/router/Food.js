@@ -1,15 +1,17 @@
 import {Router} from 'express'
 const router = Router();
 
-import {getAllFoods,getFoodById,insertDishOfDay,updateDishesPrice,updateDishOfDay} from '../controllers/Food'
+import {getAllFoods,getFoodById,insertDishOfDay,updateDishesPriceByCategory,updatePricesById,updateDishOfDay} from '../controllers/Food'
 
 router.get('/',getAllFoods);
 
-router.post('/updatePrices',updateDishesPrice);
+router.post('/updatePricesCategory',updateDishesPriceByCategory);
 
-router.post('/newDishOfTheDay',insertDishOfDay)
+router.post('/newDishOfTheDay',insertDishOfDay);
 
-router.get('/updateDishOfTheDay/:id',updateDishOfDay)
+router.get('/updateDishOfTheDay/:id',updateDishOfDay);
+
+router.post('/updatePricesId/',updatePricesById);
 
 router.get('/:id',getFoodById);
 

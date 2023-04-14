@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <h2>Log In</h2>
-    <form action="/auth/login" method="POST">
-        <label for="">Username</label> <input type="text" name="username">
-        <label for="">Password</label> <input type="text" name="password">
-        <input type="submit">
-    </form>
-    {{msg}}
-    <h3>This login is only for Admins</h3>
+    <div id="divLogIn">
+        <h2>Log In</h2>
+        <form action="/auth/login" method="POST" id="formLogin">
+            <div class="inputLogin">
+                <label for="">Nombre de Usuario</label> <input type="text" name="username">
+            </div>
+            <div class="inputLogin">
+                <label for="">Contraseña</label> <input type="password" name="password">
+            </div>
+            <input type="submit" id="btnSubmit" value="Entrar">
+        </form>
+        <p>{{msg}}</p>
+        <h3>This login is only for Admins</h3>
+    </div>
 </body>

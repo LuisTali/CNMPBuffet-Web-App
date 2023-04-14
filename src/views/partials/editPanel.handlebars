@@ -40,21 +40,26 @@
                         axios.post('/foods/newDishOfTheDay',{nombre,description}).then((response)=>{
                         if(response.data.redirect == '/foods'){
                             window.location = '/foods'
-                        }else{alert(response.data.msg)}
+                        }else{
+                            alert(response.data.msg)
+                        }
                     });
                     }catch(error){
                         console.log(error.message);
                     }
                 } 
             </script>
+            <hr id="" style="height: 3px; width:80%; margin:24px">
             <div id="menuModificarPrecios">
+                <h2>Menu Modificar Precios</h2>
+                <h3 style="margin-bottom: 16px;">Seleccione la categoria que quiera modificar, dentro del menu escriba los nuevos precios y luego debajo del todo clickee el boton Editar Precios</h3>
                         <button class="acordion">Entradas</button>
                         <div class="panel notShow">
                             <ul>
                                 {{#each entradas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -63,9 +68,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each sandwichs}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -74,9 +79,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each pescados}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -85,9 +90,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each pastas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -96,9 +101,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each carnesRojas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -107,9 +112,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each carnesBlancas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -118,9 +123,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each guarniciones}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -129,9 +134,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each ensaladas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -140,9 +145,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each arroces}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -151,20 +156,20 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each postres}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
                         </div>
-                        <button class="acordion">Menu Infantil</button>
+                        <button class="acordion">Cafeteria</button>
                         <div class="panel notShow">
                             <ul>
                                 {{#each cafeteria}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -173,9 +178,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each bebidas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -184,9 +189,9 @@
                         <div class="panel notShow">
                             <ul>
                                 {{#each cervezas}}
-                                <li><h4><label for="">*</label>{{nombre}}</h4>
+                                <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
@@ -197,11 +202,12 @@
                                 {{#each menuInfantil}}
                                 <li class="liIterar"><h4><label for="">*</label>{{nombre}}</h4>
                                 <input type="text" disabled value="{{idPlato}}" style="display: none;">
-                                <label for="">Edite nuevo precio</label><input type="number" value=3 placeholder="{{precio}}">
+                                <label for="">Edite nuevo precio</label><input type="number" placeholder="${{precio}}">
                                 </li>
                                 {{/each}}
                             </ul>
                         </div>
+                        <button id="editPrices" style="width: 180px;">Editar Precios</button>
                     </div>
                     <script>
                         let buttons = document.getElementsByClassName("acordion");
@@ -214,75 +220,42 @@
                                 buttons[i].nextElementSibling.classList.toggle("notShow");
                                 buttons[i].nextElementSibling.classList.toggle("show");
                             }
-                        }  
+                        } 
+                        let editPricesBtn = document.getElementById("editPrices");
 
-                        let ulMenuInfantil = document.getElementsByClassName("liIterar");
-                        for(let i =0; i<ulMenuInfantil.length; i++){
-                            //Por cada li en el cual itero, obtengo todos sus inputs, de esta forma accedo al id del plato con inputs[0] y al precio modificado con inputs[1], si este ultimo es == "" quiere decir que el admin no lo desea modificar.
-                            let inputs = ulMenuInfantil[i].getElementsByTagName("input")
-                            console.log(inputs);
-                            if(inputs[1].value != ""){
-                                console.log(Number(inputs[1].value) + ' Ya obtuve el input, ahora solo queda obtener los valores con un boton y pasarlos a un arreglo que tenga el id y el precio nuevo para actualizarlos usando un array y axios ')
-                            }
-                        }
-                    </script>
-            <div id="modificacionPrecios">
-            <form action="#" method="">
-                <h2 class="">Desea Aumentar o Disminuir los Precios?</h2>
-                <div id="opcionesPrecios">
-                    <div class="inputRadioModPrecio"><label for="">Aumentar Precios</label><input type="radio" name="opcionPrecios" id="" value="aumentar" checked></div>
-                    <div class="inputRadioModPrecio"><label for="">Disminuir Precios </label><input type="radio" name="opcionPrecios" id="" value="disminuir"></div>
-                </div>
-                <div class="categoriaModificar">
-
-                    <h3>Categoria a modificar Precio</h3>
-                    <select id="categoria">
-                        <option value="Entradas">Entradas</option>
-                        <option value="Sandwich">Sandwich</option>
-                        <option value="Pescados y Mariscos">Pescados y Mariscos</option>
-                        <option value="Pastas">Pastas</option>
-                        <option value="Carnes Rojas">Carnes Rojas</option>
-                        <option value="Carnes Blancas">Carnes Blancas</option>
-                        <option value="Guarnicion">Guarnicion</option>
-                        <option value="Ensaladas">Ensaladas</option>
-                        <option value="Arroces">Arroces</option>
-                        <option value="Postres">Postres</option>
-                        <option value="Cafeteria">Cafeteria</option>
-                        <option value="Bebidas">Bebidas</option>
-                        <option value="Cervezas">Cervezas</option>
-                        <option value="Menu infantil" selected>Menu infantil</option>
-                    </select>
-                    <input type="number" name="" id="porcentaje" placeholder="Porcentaje en enteros y decimales">
-                    <button type="submit" id="submitUpdate">ACTUALIZAR PRECIO</button>
-                    </form>
-                    
-                    <script>
-                    //Obtiene los valores ingresados en los inputs, los procesa y con Axios realiza un post a la ruta updatePrices para actualizar los precios de la categoria elegida
-                    const btn = document.getElementById("submitUpdate");
-                    btn.onclick = async (e)=>{
-                        e.preventDefault();
-                        console.log('Click');
-                        const select = document.getElementById("categoria");
-                        const categoriaSelected = select.options[select.selectedIndex].text;
-                        const opcionSelected = document.querySelector('input[name="opcionPrecios"]:checked').value;
-                        const porcentajeSelected = Number(document.getElementById('porcentaje').value)/100;
+                        //A todos los li de las listas les asigno la clase liIterar para obtenerlos a todos aqui y extraer los datos de los platos modificados de esta manera
+                        let platosValues = document.getElementsByClassName("liIterar");
                         
-                        try{
-                            if(porcentajeSelected == ""){throw new Error('Elija si desea aumentar o disminuir los precios e indique el porcentaje y la categoria a modificar');}
-                            //Realiza un post, si aumenta o disminuye correctamente se recibe en redirect = '/foods' trayendo al admin al homePage
-                            axios.post('/foods/updatePrices',{categoria:categoriaSelected,porcentaje:porcentajeSelected,opcionSeleccionada:opcionSelected}).then((response)=>{
-                                if(response.data.redirect == '/foods'){
-                                    window.location = '/foods'
-                                }else{
-                                    alert(response.data.msg);
+                        let dishes = [];
+
+                        editPricesBtn.onclick = ()=>{
+                            console.log('Edit Prices clickeado')
+                            for(let i =0; i<platosValues.length; i++){
+
+                                //Por cada li en el cual itero, obtengo todos sus inputs, de esta forma accedo al id del plato con inputs[0] y al precio modificado con inputs[1], si este ultimo es == "" quiere decir que el admin no lo desea modificar.
+                                let inputs = platosValues[i].getElementsByTagName("input")
+                                
+                                if(inputs[1].value != ""){
+                                    let platoActualizado = {id:inputs[0].value,precio:inputs[1].value};
+                                    dishes.push(platoActualizado);
                                 }
-                            })
-                        }catch(error){
-                            alert(error.message);
-                        }
-                    }
+                            }
+                            try{
+                                if(dishes.length == 0){
+                                    throw new Error('Debe especificar el nuevo precio de al menos un producto para actualizar los precios')
+                                }
+                                axios.post('/foods/updatePricesId',{dishes}).then((response)=>{
+                                    if(response.data.redirect == '/foods'){
+                                        window.location = '/foods';
+                                    }else{
+                                        window.location = '/auth/logout';
+                                    }
+                                })
+                            }catch(error){
+                                alert(error.message);
+                            }
+                        }  
                     </script>
-                </div>
             </div> 
         </div>
     </div>

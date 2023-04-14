@@ -55,7 +55,7 @@ export const getFoodById = async(req,res)=>{
     }
 }
 
-export const updateDishesPrice = async(req,res) =>{
+export const updateDishesPriceByCategory = async(req,res) =>{
     try {
         let {categoria,porcentaje,opcionSeleccionada} = req.body;
         const pool = await getConnection();
@@ -67,6 +67,19 @@ export const updateDishesPrice = async(req,res) =>{
             result = await pool.request().input("decremento",sql.Float,porcentaje).input("categoriaDecremento",sql.VarChar,categoria).query(querys.decreasePriceByCategory);
             return res.json({redirect: '/foods'})
         }
+    } catch (error) {
+        return res.status(400).json({success:false,msg:error.message});
+    }
+}
+
+export const updatePricesById = async(req,res)=>{
+    try {
+        let {dishes} = req.body;
+        const pool = await getConnection();
+        dishes.forEach(dish => {
+            pool.request().input("precio",sql.Float,dish.precio).input("id",sql.Int,dish.id).query(querys.updatePriceById);    
+        });
+        return res.json({redirect: '/foods'})
     } catch (error) {
         return res.status(400).json({success:false,msg:error.message});
     }

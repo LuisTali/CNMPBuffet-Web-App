@@ -13,7 +13,7 @@ export const showLogin = async(req,res) =>{
 export const login = async(req,res) => {
     try {
         const {username,password} = req.body;
-
+        
         if(username === undefined || password === undefined){ return res.status(400).json({success:false,msg:'Please fill all fields'})}
 
         const pool = await getConnection();
@@ -23,8 +23,6 @@ export const login = async(req,res) => {
             let password = result.recordset[0].password;
 
             let user = new User(username,password);
-            
-            ((user!==undefined) ? console.log(`Usuario creado, Admin: ${user.getAdmin()}`) : console.log('Usuario undefinido'));
             
             req.session.user = user;
             req.session.loggedUser = 1;

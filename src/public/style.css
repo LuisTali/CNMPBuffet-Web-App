@@ -25,6 +25,7 @@ body{
     display: none;
     opacity: 0;
     pointer-events: none;
+    transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 
@@ -314,7 +315,7 @@ body{
     }
 /*Fin seccion Details-Order Styles*/
 
-/*Inicio seccion Editar-PlatodelDia Styles*/
+/*Inicio seccion editPanel Styles*/
     .editInfo{
         position: absolute;
         width: 100%;
@@ -430,21 +431,12 @@ body{
         font-size: 50px;
     }
     #editPanel .presentacionPrevia #presentacionDesc{font-size: 36px;}
-
-    /*Inicio seccion Update-Options Styles*/
-    .editInfo #modificacionPrecios{
-        margin-top: 32px;
-    }
-    .editInfo #modificacionPrecios h4{
-        margin-top: 16px;
-        font-size: 40px;
-    }
-
+    
     /*Panel para edita precios con categorias desplegables*/
         #editPanel #menuModificarPrecios{
             display: flex;
             padding: 24px 16px 24px 16px;
-            margin: 24px 16px 24px 16px;
+            margin: 8px 16px 24px 16px;
             align-items: center;
             flex-direction: column;
         }
@@ -462,11 +454,9 @@ body{
             text-align: center;
         }
         #menuModificarPrecios .acordion:hover, #menuModificarPrecios .acordion.active{
-            
             font-size: 13px;
             color: #777;
             float: right;
-            
         } 
         #menuModificarPrecios button.accordion:after {
             content: '\02795';
@@ -474,9 +464,8 @@ body{
             color: #777;
             float: right;
             margin-left: 5px;
-        }button.accordion.active:after {
-            content: "\2796";
         }
+        button.accordion.active:after {content: "\2796";}
         .panel{
             margin-bottom: 16px;
         }
@@ -496,53 +485,35 @@ body{
             overflow: hidden;
             transition: 0.6s ease-in-out;
         }
-        #editPanel #menuModificarPrecios .show label{
-            font-size: 20px;
-            font-weight: 700;
-        }
         .show ul li{
             float:left;
             padding: 0px 8px 0px 8px;
             white-space: normal;
+            width: 400px;
+            margin: 16px 8px 16px 8px;
         }
-    /*Panel para edita precios con categorias desplegables*/
-
-   
-    #modificacionPrecios .categoriaModificar{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 16px;
-    }
-    #modificacionPrecios .categoriaModificar #categoria{
-        padding: 8px 8px 8px 8px; 
-        border: 3px solid rgb(0, 0, 113);
-        border-radius: 5px;
-    }
-    
-    /*Inicio seccion Select Aumentar/Disminuir Styles*/
-        .editInfo #opcionesPrecios{
+        #editPanel #menuModificarPrecios .show label{
+            font-size: 20px;
+            font-weight: 700;
+        }
+        #editPanel #menuModificarPrecios .show h4{
+            font-size: 30px;
             display: flex;
-            flex-direction: column;
+            height: 80px;
+            justify-content: center;
             align-items: center;
         }
-        .editInfo #opcionesPrecios label{
-            font-size: 30px;
-            font-weight: 600;
+        #editPanel #menuModificarPrecios .show input{
+            padding: 8px 8px 8px 8px;
+            height: 30px;
+            font-size: 20px;
         }
-
-        .editInfo #opcionesPrecios input{
-            width: 36px;
-            height: 36px;
-            margin-left: 8px;
+        #editPanel #menuModificarPrecios .show input::placeholder{
+            text-align: center;
         }
-
-        .editInfo #opcionesPrecios .inputRadioModPrecio{
-            display: flex;
-            margin: 8px 0px 8px 0px;
-        }  
-    /*Fin seccion Select Aumentar/Disminuir Styles*/
-/*Fin seccion Editar-PlatodelDia Styles*/
+        
+    /*Panel para edita precios con categorias desplegables*/
+/*Fin seccion editPanel Styles*/
 
 /*Inicio seccion Footer.handlebars Styles*/
     footer{
@@ -572,35 +543,44 @@ body{
     }
 /*Fin seccion Footer.handlebars Styles*/
 
-/*Estilos para la carta cuando busco un plato por Id*/
-    .foodSearched{
-        margin-top: 100px;
+/*Inicio seccion Login.handlebars Styles*/
+    #divLogIn{
         width: 100%;
-        height: 75vh;
+        height: 100vh;
         display: flex;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
     }
-    .foodSearched .card{
+    .inputLogin{
         display: flex;
-        width: 70%;
-        height: 60vh;
-        background-size: cover;
-        box-shadow: 1;
-        box-shadow: 0px 3px 3px  black;
-        margin-right: 16px;
-        border-radius: 20px;
+        margin: 16px 0px 16px 0px;
     }
-    .foodSearched .card .texto{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 90%;
-        margin: 8px 0px 0px 16px;
-        font-weight: 500;
+    .inputLogin label{
+        font-size: 46px;
+        width: 400px;
     }
-    .foodSearched .card .texto h4{background-color: bisque;} .foodSearched .card .texto p{background-color: bisque;}
-/*Fin de la seccion searchFoodById*/
+    .inputLogin input{
+        width: 400px;
+        padding: 8px 16px 8px 16px;
+        font-size: 36px;
+    }
+    #btnSubmit{
+        width: 150px;
+        height: 60px;
+        font-weight: 700;
+        font-size: 28px;
+    }
+    #divLogIn p{
+        text-align: center;
+        margin: 16px 0px 8px 0px;
+        font-size: 18px;
+    }
+    #divLogIn h3{
+        margin: 16px;
+        font-size: 24px;
+    }
+/*Fin seccion LogIn Styles*/
 
 @media screen and (max-width:415px){
     body{
@@ -768,6 +748,12 @@ body{
 
     footer p{
         white-space: nowrap;
+    }
+
+    .inputLogin{
+        display: flex;
+        flex-direction: column;
+        margin: 16px 0px 16px 0px;
     }
 }
 
