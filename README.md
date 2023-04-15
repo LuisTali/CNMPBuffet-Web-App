@@ -1,7 +1,7 @@
 CNMP Buffet Web App
 =========================
 
--Web App donde se muestra el menu del buffet del Club Nautico Mar del Plata, donde los comensales pueden ver los platos divididos por categorias y junto a cada una de las comidas, se presenta un boton clickeable indicando el precio del plato. Al final de la pagina se muestra el subtotal de los platos añadidos al carrito de compras.
+- Web App donde se muestra el menu del buffet del Club Nautico Mar del Plata, donde los comensales pueden ver los platos divididos por categorias y junto a cada una de las comidas, se presenta un boton clickeable indicando el precio del plato. Al final de la pagina se muestra el subtotal de los platos añadidos al carrito de compras.
 Ofrece un panel de administrador para configurar los precios de cada plato de manera individual y para cargar un nuevo plato del dia o seleccionar uno de los ingresados con anterioridad, mostrandolo luego en la pagina principal del menu. 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
