@@ -556,6 +556,10 @@ body{
         font-weight: 500;
     }
     footer label{ font-weight: 700; }
+    #labelLogIn a{
+        color: rgb(0, 0, 138);
+        text-decoration: underline;
+    }
 /*Fin seccion Footer.handlebars Styles*/
 
 /*Inicio seccion Login.handlebars Styles*/
@@ -740,6 +744,9 @@ body{
         align-items: center;
     }
     
+    #editPanel .separador{
+        width: 90%;
+    }
 
     .container{
         display: flex;

@@ -33,6 +33,9 @@ export const getAllFoods = async(req,res)=>{
         let postres = filterArrayFoods(foods,'postres');
 
         let platoDia = await getDishOfTheDay();
+
+        if(platoDia == undefined || platoDia == "" || platoDia == null){platoDia == {nombre:'Plato del dia',descripcion:'Descripcion plato dia'}};
+        
         let listaPlatosDia = await getListDishesOfDay();
         listaPlatosDia = listaPlatosDia.filter((dish) => dish.flagDia == false); //Lista las opciones que no son plato del dia actualmente
 

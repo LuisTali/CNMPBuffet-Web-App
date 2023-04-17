@@ -2,7 +2,8 @@
     <h3>Creado por <b>Luis Taliercio</b></h3>
     <h2><a href="https://github.com/LuisTali" target="_blank">Clickea para visitar mi perfil en GitHub <img src="/Iconos/github.png" alt="" style="height: 25px; width:25px"></a></h2>
     <div class="info" id="info">
-            <div class="dato" id="datoTelefono"><label for="">Telefono:</label><p> 480-6167</p></div>
-            <div class="dato" id="datoDireccion"><label for="">Direccion:</label><p> Av. Altair Espigón C</p></div>
-        </div>
+        <div class="dato" id="datoTelefono"><label for="">Telefono:</label><p> 480-6167</p></div>
+        <div class="dato" id="datoDireccion"><label for="">Direccion:</label><p> Av. Altair Espigón C</p></div>
+    </div>
+    {{#if admin}} {{else}}<label id="labelLogIn"><a href="/auth/showLogin">Es admin? Inicie Sesion</a></label>{{/if}}
 </footer>

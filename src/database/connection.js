@@ -8,8 +8,8 @@ const dbSetting = {
     database: config.database,
     port: Number(config.dbPort),
     options:{
-        encrypt: false, // for azure, servicio en nube de microsoft
-        trustServerCertificate: true // change to true for local dev / self-signed certs
+        encrypt: true, // for azure, servicio en nube de microsoft
+        trustServerCertificate: false // change to true for local dev / self-signed certs
     }
 }
 

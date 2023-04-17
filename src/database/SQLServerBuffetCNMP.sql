@@ -1,12 +1,10 @@
 CREATE DATABASE CNMPBuffet;
-USE CNMPBuffet;
 
 CREATE TABLE Plato(
 	idPlato int IDENTITY(1,1) CONSTRAINT pkPlato PRIMARY KEY,
 	nombre varchar(50) NOT NULL CONSTRAINT uqPlato UNIQUE,
 	descripcion varchar(200),
 	precio float null DEFAULT 0.00,
-	platoDia bit null DEFAULT 0,
 	idCategoria int NOT NULL CONSTRAINT fkPlato1 FOREIGN KEY REFERENCES Categoria(idCategoria)
 	--Permite valor nulo y su valor por default es 0, ya que el plato del dia se escoge luego.
 );
