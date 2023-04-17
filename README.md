@@ -16,7 +16,7 @@ Utilice para el desarrollo
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-![homePagePC](https://user-images.githubusercontent.com/101566196/232230292-a99c831c-559c-410e-8102-ede2fde9eaad.jpeg)
+![homePagePC](https://user-images.githubusercontent.com/101566196/232547864-20b470df-a7d2-46c3-ba97-5cfb4cc96652.jpeg)
 - Home Page PC.
 
 ![logIn-PC jpeg](https://user-images.githubusercontent.com/101566196/232229689-8a6ddefa-b8fc-47b6-b7b4-adb404e96848.png)
@@ -48,15 +48,15 @@ Utilice para el desarrollo
 
 Imagenes en Version para Moviles
 
-![homePageMovile jpeg](https://user-images.githubusercontent.com/101566196/232229892-d0a974ce-3000-49c5-826d-b85318c53b39.png)
+![homePageMovile jpeg](https://user-images.githubusercontent.com/101566196/232548113-ed16d574-b081-40c4-9150-fac2677f230c.png)
 - Home Page Mobile.
 
 
-![homePage-MenuMovile jpeg](https://user-images.githubusercontent.com/101566196/232229895-9e13c11f-35f9-478c-bfec-666eb19543f0.png)
+![homePage-MenuMovile jpeg](https://user-images.githubusercontent.com/101566196/232548446-4c61316f-d3a9-44e0-a1fa-b36c95c3fa21.png)
 - Home Page Menu Mobile.
 
 
-![homePage-FooterMovil jpeg](https://user-images.githubusercontent.com/101566196/232229901-172708c2-24bd-4ee6-ac11-4f3e9e887271.png)
+![homePage-FooterMovil jpeg](https://user-images.githubusercontent.com/101566196/232548528-0683f6df-ef27-4a44-8e34-d6d30b9b7e16.png)
 - Footer de la Home Page Mobile.
 
 
@@ -64,5 +64,5 @@ Imagenes en Version para Moviles
 - Nav-Bar con menu desplegable que posee las opciones a realizar del administrador una vez ya logueado. 
 
 
-![editPanel-chargeNewDishOfDay-Movil jpeg](https://user-images.githubusercontent.com/101566196/232229929-28f09e0e-e12d-45a6-9b0f-1b7885e3ad33.png)
+![editPanel-chargeNewDishOfDay-Movil jpeg](https://user-images.githubusercontent.com/101566196/232548619-3c4f9bc9-908c-4535-8bbc-f2db8866ae2b.png)
 - Edit Panel en dispositivo Movil.
