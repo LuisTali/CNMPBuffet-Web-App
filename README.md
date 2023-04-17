@@ -41,8 +41,8 @@ Utilice para el desarrollo
 - Admin Panel. Menu con categorias desplegables para modificar el precio de cada plato de forma individual.
 
 
-![editPanel-modifyPricesDropDownMenu-PC jpeg](https://user-images.githubusercontent.com/101566196/232229588-8184fe1e-62ab-49c0-9128-d5d8993082d0.png)
-- Admin Panel. Menu con la categoria 'Sandwichs' desplegado, permite modificar el precio de cuantos platos el administrador desee.
+![editPanel-modifyPricesDropDownMenu-PC jpeg](https://user-images.githubusercontent.com/101566196/232549056-b299339c-65f9-4c71-a357-9aefc044d9b8.png)
+- Admin Panel. Menu con la categoria 'Carnes Rojas' desplegado, permite modificar el precio de cuantos platos el administrador desee.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
