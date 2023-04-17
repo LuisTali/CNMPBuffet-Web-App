@@ -16,7 +16,7 @@ Utilice para el desarrollo
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-![homePagePC](https://user-images.githubusercontent.com/101566196/232547864-20b470df-a7d2-46c3-ba97-5cfb4cc96652.jpeg)
+![homePagePC](https://user-images.githubusercontent.com/101566196/232548917-958b8583-2adc-404c-a4fc-5fb9e8a6f23a.jpeg)
 - Home Page PC.
 
 ![logIn-PC jpeg](https://user-images.githubusercontent.com/101566196/232229689-8a6ddefa-b8fc-47b6-b7b4-adb404e96848.png)
