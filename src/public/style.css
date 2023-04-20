@@ -776,8 +776,6 @@ body{
         text-align: center ;
         align-items: center;
         width: 80%;
-        /*background-position: center center; si descomento esta linea queda un diseño mas responsive, la comento ya que son platos preferentes los cuales dudo que se actualicen seguido, optando asi por posicionarlos manualmente*/
-        /*background-attachment: fixed; si descomento esta linea, las imagenes quedan fijas y al scrollear se mueven las tarjetas a medida que van recorriendo las imagenes, un efecto muy bueno a tener en cuenta pero debo achicar las imagenes un poco para no perder*/
     }
     .container .container-main .card .texto{ margin: 8px 8px 0px 8px; }
     .card1{ background-position: 0px -20px; }
