@@ -28,7 +28,6 @@ Utilice para el desarrollo
 ![homePage-Menu-PC jpeg](https://user-images.githubusercontent.com/101566196/232229469-0d230c16-f79f-4899-90a4-7dd8abad73af.png)
 - Home Page Menu PC.
 
-
 ![editPanel-chooseDishOfDay jpeg](https://user-images.githubusercontent.com/101566196/232229481-7cd98edc-1db2-4900-989a-8b1c6d53f745.png)
 - Admin Panel. Elije el plato del dia de los cargados anteriormente.
 
@@ -44,6 +43,8 @@ Utilice para el desarrollo
 ![editPanel-modifyPricesDropDownMenu-PC jpeg](https://user-images.githubusercontent.com/101566196/232549056-b299339c-65f9-4c71-a357-9aefc044d9b8.png)
 - Admin Panel. Menu con la categoria 'Carnes Rojas' desplegado, permite modificar el precio de cuantos platos el administrador desee.
 
+![shoppingCartDropDown-PC jpeg](https://user-images.githubusercontent.com/101566196/233670482-5003c431-cba2-4c8f-b007-2e5238e18061.png)
+- Footer con Menu Desplegable al cliquear el Subtotal que indica los platos añadidos al carrito y sus precios.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Imagenes en Version para Moviles
