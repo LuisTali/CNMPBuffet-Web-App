@@ -263,7 +263,7 @@ body{
         margin: 0px 50px 6px 50px;
         align-items: center;
     }
-    .menu .categoria h3{ font-size: 1.8em; }
+    
     .menu .categoria ul li h4{ font-size: 1.4em; }
     .menu .categoria ul li button{
         display: flex;
@@ -285,11 +285,15 @@ body{
         height: 20px;
     }
 
-    .categoria h3{
-        text-decoration:underline;
+    .menu .categoria h3{
+        width: 20%;
+        margin-left: 40%; /*Para centrarlo*/
+        font-size: 2.5em; font-family: 'Dancing Script',cursive;;
+        border-bottom: 2px red solid;
         text-decoration-color: red;
         color: rgb(0, 0, 113);
-        font-weight: 700;
+        font-weight: 600;
+        margin-bottom: 1rem;
     }
 
     .menu p{ text-align: center; }
@@ -716,6 +720,10 @@ body{
         width: 100%; 
         margin: 0px; 
         text-align: left;
+    }
+    .menu .categoria h3{
+        width: fit-content;
+        margin-left: 0px;
     }
 
     .menu .categoria ul li .buyBtn{

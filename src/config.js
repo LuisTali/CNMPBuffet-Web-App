@@ -7,5 +7,6 @@ export default{
     username: process.env.USER,
     password: process.env.PASSWORD,
     dbPort: process.env.DBPORT,
-    serverName: process.env.SERVER_NAME
+    serverName: process.env.SERVER_NAME,
+    dbSettings: process.env.DB_SETTINGS
 }
