@@ -252,8 +252,13 @@ body{
         margin-left: 10%;
     }
     
-    .menu .categoria{ margin: 16px; }
-
+    .menu .categoria{ margin: 16px; 
+    }
+    .menu .categoria ul{
+        background-color: rgb(253, 253, 253);
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.25rem;
+    }
     .menu .categoria ul li h4 label{ color: rgb(3, 66, 95); }
 
     .menu .categoria ul li{
@@ -289,11 +294,10 @@ body{
         width: 45%;
         margin-left: 27.5%; /*Para centrarlo*/
         font-size: 2.5em; font-family: 'Dancing Script',cursive;;
-        border-bottom: 2px red solid;
-        text-decoration-color: red;
+        text-decoration: red solid overline ;
         color: rgb(0, 0, 113);
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin-top: 3rem;
         white-space: nowrap;
     }
 
@@ -748,6 +752,13 @@ body{
     .menu .categoria h3{
         width: fit-content;
         margin-left: 0px;
+        text-decoration: none;
+        border-bottom: 2px solid red;
+    }
+    .menu .categoria ul{
+        background-color: white;
+        border-radius: 0.25rem;
+        padding: 0.025rem 0rem;
     }
 
     .menu .categoria ul li .buyBtn{
