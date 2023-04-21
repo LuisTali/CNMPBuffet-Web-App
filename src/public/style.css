@@ -752,8 +752,10 @@ body{
     .menu .categoria h3{
         width: fit-content;
         margin-left: 0px;
+        margin-top: 0px;
         text-decoration: none;
         border-bottom: 2px solid red;
+        
     }
     .menu .categoria ul{
         background-color: white;
@@ -764,7 +766,7 @@ body{
     .menu .categoria ul li .buyBtn{
         display: flex;
         font-size: 1em;
-        width: 82px;
+        max-width: 82px;
         height: 30px;
         padding: 0px 6px 0px 6px;
         margin-right: 16px;
@@ -775,7 +777,7 @@ body{
         margin:18px 8px 18px 8px ;
         min-height: 30px;
         max-height: 42px;
-        height: fit-content;
+        height: 42px;
     }
 
     .menu .categoria ul li h4{
