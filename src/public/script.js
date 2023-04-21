@@ -22,6 +22,8 @@ function start(){
     //Boton para ordenar al costado del inputSubTotal
     const orderBtn = document.getElementById('order');
     
+    const divCarrito = document.getElementById("shoppingCart");
+    
     //Para iterar y colocarle un listener a cada uno
     const buyButtons = document.querySelectorAll(".buyBtn");
 
@@ -36,7 +38,9 @@ function start(){
         carrito.push(objValue);
         subTotal += objValue.precio;
         inputSubT.setAttribute('placeholder',`$${subTotal}`);
-        //console.log(objValue.id, objValue.nombre ,objValue.precio);
+        let dish = document.createElement('h4');
+        dish.textContent = objValue.nombre + ' $' + objValue.precio;
+        divCarrito.appendChild(dish);
     }
     
     //Por cada boton de Compra, le agrego onClick para que al clickearlo, se ejecute la funcion para agregar el plato al carrito de compras
@@ -50,6 +54,15 @@ function start(){
         inputSubT.setAttribute('placeholder','$0');
         subTotal = 0;
         carrito = [];
+        divCarrito.innerHTML = ""; //Div shoppingCart limpiado
+        (divCarrito.classList.contains('notShow') ? '' : divCarrito.classList.add('notShow'))
+    }
+
+    inputSubT.onmouseup = () =>{
+        console.log(divCarrito)
+        if(carrito.length>0){
+            divCarrito.classList.toggle('notShow');
+        }
     }
 
     //Al cliquear Edit se muestra la seccion para ingresar la info del plato del dia
@@ -63,18 +76,9 @@ function start(){
         lineaMenu.classList.toggle('isInactive');
         footer.classList.toggle('isInactive');
     }
-    
-    editInfo.onclick = showEditPanel;
-        
+    editInfo.onclick = showEditPanel; 
     backBtn.onclick = showEditPanel;
 
-    //Al cliquear Edit en la seccion de info del plato del dia se muestra el index con la info actualizada
-    
-    /*backBtn.addEventListener('click',(e) => {
-        showEditPanel()
-        }
-    )*/
-    
     //Muestra en tiempo real la info que se va escribiendo acerca del plato del dia en la Edit page
     nombrePlatoDia.addEventListener('keyup',(event) => {
         let inputText = nombrePlatoDia.value;
@@ -85,6 +89,7 @@ function start(){
         document.getElementById('presentacionDesc').innerHTML = inputText;
     })
 
+    //Administra Admin Options en Mobile devices
     let select = document.getElementById("adminOptions");
     select.onchange = () =>{
         let valueSelected = select.options[select.selectedIndex].value;
