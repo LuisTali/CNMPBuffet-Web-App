@@ -13,9 +13,11 @@ const dbSetting = {
     }
 }
 
+const stringSetting = `Server=${config.serverName},${config.dbPort};Database=${config.database};User Id=${config.username};Password=${config.password};Encrypt=true`;
+
 const getConnection = async()=>{
     try {
-        const pool = await sql.connect(dbSetting);
+        const pool = await sql.connect(stringSetting);
         return pool;
     } catch (error) {
         console.log(error);

@@ -188,10 +188,10 @@ body{
             font-weight: 500;
         }
 
-        .card1{background-position: 0px -100px;}
-        .card2{background-size: contain;background-position: 0px -400px;}
-        .card3{background-position: 0px -210px;}
-        .card5{background-position: 0px -100px;}
+        .card{
+            background-position: center center;
+            background-size: cover;
+        }
 
         .container .container-main .card h4{
             background-color: beige;
@@ -264,7 +264,7 @@ body{
         align-items: center;
     }
     
-    .menu .categoria ul li h4{ font-size: 1.4em; }
+    .menu .categoria ul li h4{ font-size: 1.1em; }
     .menu .categoria ul li button{
         display: flex;
         font-size: 1.5em;
@@ -286,14 +286,15 @@ body{
     }
 
     .menu .categoria h3{
-        width: 20%;
-        margin-left: 40%; /*Para centrarlo*/
+        width: 45%;
+        margin-left: 27.5%; /*Para centrarlo*/
         font-size: 2.5em; font-family: 'Dancing Script',cursive;;
         border-bottom: 2px red solid;
         text-decoration-color: red;
         color: rgb(0, 0, 113);
         font-weight: 600;
         margin-bottom: 1rem;
+        white-space: nowrap;
     }
 
     .menu p{ text-align: center; }
@@ -626,7 +627,7 @@ body{
     }
 /*Fin seccion LogIn Styles*/
 
-@media screen and (max-width:415px){
+@media screen and (max-width:830px){
     body{
         overflow-y: scroll;
     }
@@ -786,12 +787,11 @@ body{
         width: 80%;
     }
     .container .container-main .card .texto{ margin: 8px 8px 0px 8px; }
-    .card1{ background-position: 0px -20px; }
-    .card2{ background-position: 0px -155px; }
-    .card3{ background-position: 0px -70px; }
-    .card4{ background-position: -20px 0px;  }
-    .card5{ background-position: 0px -30px; }
-    .card6{ background-position: -50px 0px; }
+
+    .card{
+        background-position: center center;
+        background-size: cover;
+    }
 
     .container .container-aside{
         display: flex;
