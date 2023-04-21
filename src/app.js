@@ -16,6 +16,7 @@ import authRoutes from './router/Auth';
 
 //Para crear sesiones y almacenar el user loggeado.
 import session from 'express-session'; 
+import { url } from 'inspector';
 
 //Uso los recursos estaticos
 app.use(express.static(path.join(__dirname,"/public")))
@@ -39,7 +40,7 @@ app.use(session({
 app.use('/foods',foodsRoutes);
 app.use('/auth',authRoutes);
 
-app.listen(app.get('port'),(req,res)=>{
+app.listen(app.get('port'),()=>{
     console.log(`Server is listening on port ${app.get('port')}`);
 })
 
