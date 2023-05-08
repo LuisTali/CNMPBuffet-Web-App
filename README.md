@@ -54,7 +54,7 @@ Imagenes en Version para Moviles
 - Home Page Mobile.
 
 
-![homePage-MenuMovile jpeg](https://user-images.githubusercontent.com/101566196/232548446-4c61316f-d3a9-44e0-a1fa-b36c95c3fa21.png)
+![homePage-MenuMovile jpeg](https://user-images.githubusercontent.com/101566196/236862996-76093cf5-6b1e-4225-b402-72ed0c4a23fe.png)
 - Home Page Menu Mobile.
 
 
