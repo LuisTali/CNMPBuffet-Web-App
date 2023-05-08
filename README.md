@@ -26,7 +26,7 @@ Utilice para el desarrollo
 ![homePage-Menu-loggedinAsAdmin-PC jpeg](https://user-images.githubusercontent.com/101566196/232229789-f2bd44d2-925c-405a-890d-8bcd8a084617.png)
 - Home Page ya logueado con cuenta de Administrador.
 
-![homePage-Menu-PC jpeg](https://user-images.githubusercontent.com/101566196/232229469-0d230c16-f79f-4899-90a4-7dd8abad73af.png)
+![homePage-Menu-PC jpeg](https://user-images.githubusercontent.com/101566196/236862573-787cc8e2-93e0-4129-baf1-3848fae74003.png)
 - Home Page Menu PC.
 
 ![editPanel-chooseDishOfDay jpeg](https://user-images.githubusercontent.com/101566196/232229481-7cd98edc-1db2-4900-989a-8b1c6d53f745.png)
